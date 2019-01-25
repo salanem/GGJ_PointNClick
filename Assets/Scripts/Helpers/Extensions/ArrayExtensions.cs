@@ -65,4 +65,17 @@ public static class ArrayExtensions
 
         return returnValue;
     }
+
+    public static T Random<T>(this T[] _array)
+    {
+        if (_array == null)
+        {
+            throw new NullReferenceException();
+        }
+        if (_array.Length == 0)
+        {
+            return default;
+        }
+        return _array[UnityEngine.Random.Range(0, _array.Length)];
+    }
 }

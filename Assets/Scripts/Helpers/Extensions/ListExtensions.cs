@@ -47,4 +47,17 @@ public static class ListExtensions
         }
         return _list[_list.Count - 1];
     }
+
+    public static T Random<T>(this List<T> _list)
+    {
+        if (_list == null)
+        {
+            throw new NullReferenceException();
+        }
+        if (_list.Count == 0)
+        {
+            return default;
+        }
+        return _list[UnityEngine.Random.Range(0, _list.Count)];
+    }
 }
