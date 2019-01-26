@@ -21,7 +21,7 @@ public class InteractionSettings : ScriptableObject
         }
     }
 
-    public string[] FailResponses
+    public Dialog[] FailResponses
     {
         get
         {
@@ -29,7 +29,7 @@ public class InteractionSettings : ScriptableObject
         }
     }
 
-    public string[] SuccessResponses
+    public Dialog[] SuccessResponses
     {
         get
         {
@@ -50,9 +50,9 @@ public class InteractionSettings : ScriptableObject
     [SerializeField]
     protected bool m_useDefaultResponses;
     [SerializeField]
-    protected string[] m_failResponses;
+    protected Dialog[] m_failResponses;
     [SerializeField]
-    protected string[] m_successResponses;
+    protected Dialog[] m_successResponses;
     [SerializeField]
     protected Animation m_successAnimation;
 }

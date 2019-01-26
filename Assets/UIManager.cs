@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Get { get; private set; }
 
+    public Image m_FadeImage;
+
     public Image[] m_FirstRowItems;
     public Image[] m_SecondRowItems;
 
@@ -25,14 +27,46 @@ public class UIManager : MonoBehaviour
         DisplayInventoryItems(new PickableObject[0]);
     }
 
+    public void FadeInOut(float _blackTime, float _fadeDuration)
+    {
+        StartCoroutine(AsyncFadeInOut(_blackTime, _fadeDuration));
+    }
+
+    private IEnumerator AsyncFadeInOut(float _blackTime, float _fadeDuration)
+    {
+        StartCoroutine(AsyncFadeToColor(Color.black, _fadeDuration));
+        yield return new WaitForSeconds(_blackTime);
+        StartCoroutine(AsyncFadeToColor(new Color(1, 1, 1, 0), _fadeDuration));
+    }
+
+    private IEnumerator AsyncFadeToColor(Color _color, float _time)
+    {
+        float time = _time;
+        float lerpTime = 0;
+        Color startColor = m_FadeImage.color;
+        while (time > 0)
+        {
+            lerpTime += Time.deltaTime / _time;
+            m_FadeImage.color = Color.Lerp(startColor, _color, lerpTime);
+            time -= Time.deltaTime;
+            yield return null;
+        }
+    }
+
     public void SetInteractionType(int _type)
     {
         GameManager.Get.m_CurrentInteractionType = (EInteractionType)_type;
     }
 
-    public void HightlightItem(int _index)
+    public void SelectItem(int _index)
     {
+        if (GameManager.Get.m_CurrentInteractionType != EInteractionType.PICK_UP)
+        {
+            GameManager.Get.GetObjectFromIndex(_index).Interact();
+            return;
+        }
         ResetHighlighting();
+        GameManager.Get.SelectInventoryItem(_index);
         if (_index < 3)
         {
             m_FirstRowItems[_index].color = Color.green;
@@ -53,10 +87,10 @@ public class UIManager : MonoBehaviour
                     m_FirstRowItems[i].enabled = true;
                     m_FirstRowItems[i].preserveAspect = true;
                 }
-                if (i > 2)
+                else
                 {
                     m_SecondRowItems[i - 3].sprite = _items[i].m_InventorySprite;
-                    m_FirstRowItems[i].enabled = true;
+                    m_SecondRowItems[i - 3].enabled = true;
                     m_SecondRowItems[i - 3].preserveAspect = true;
                 }
             }
@@ -68,7 +102,7 @@ public class UIManager : MonoBehaviour
                     m_FirstRowItems[i].enabled = false;
                     m_FirstRowItems[i].preserveAspect = true;
                 }
-                if (i > 2)
+                else
                 {
                     m_SecondRowItems[i - 3].sprite = null;
                     m_SecondRowItems[i - 3].enabled = false;

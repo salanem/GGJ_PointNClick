@@ -6,8 +6,8 @@ using UnityEngine;
 public class UseInteractionSettings : InteractionSettings
 {
     public string CanBeUsedWith { get { return m_canBeUsedWith; } }
-    public string UsedResponse { get { return m_usedResponse; } }
+    public Dialog UsedResponse { get { return m_usedResponse; } }
 
     protected string m_canBeUsedWith;
-    protected string m_usedResponse;
+    protected Dialog m_usedResponse;
 }
