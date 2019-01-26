@@ -21,19 +21,19 @@ public class InteractionSettings : ScriptableObject
         }
     }
 
-    public Dialog[] FailResponses
+    public Response FailResponse
     {
         get
         {
-            return m_failResponses;
+            return m_failResponse;
         }
     }
 
-    public Dialog[] SuccessResponses
+    public Response SuccessResponse
     {
         get
         {
-            return m_successResponses;
+            return m_successResponse;
         }
     }
 
@@ -50,9 +50,9 @@ public class InteractionSettings : ScriptableObject
     [SerializeField]
     protected bool m_useDefaultResponses;
     [SerializeField]
-    protected Dialog[] m_failResponses;
+    protected Response m_failResponse;
     [SerializeField]
-    protected Dialog[] m_successResponses;
+    protected Response m_successResponse;
     [SerializeField]
     protected Animation m_successAnimation;
 }

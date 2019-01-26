@@ -58,8 +58,8 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<string, List<string>> m_activeObjectsByScene = new Dictionary<string, List<string>>();
     public EInteractionType m_CurrentInteractionType;
-    public Dialog[] m_DefaultSuccessResponses;
-    public Dialog[] m_DefaultFailedResponses;
+    public Response m_DefaultSuccessResponse;
+    public Response m_DefaultFailedResponse;
     public float m_DefaultTextTime;
     public Scene m_UIScene;
 

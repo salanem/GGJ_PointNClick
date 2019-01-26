@@ -7,6 +7,19 @@ public class DialogManager : MonoBehaviour
 {
     public static DialogManager Get { get; private set; }
 
+    public bool IsPlayingDialog
+    {
+        get
+        {
+            return m_currentDialog != null;
+        }
+    }
+
+    private Dialog m_currentDialog;
+    private AudioSource m_audioSource;
+    private int m_index;
+    private RepeatingCountdown m_countdown;
+
     private void Awake()
     {
         if (Get != null)
@@ -17,11 +30,6 @@ public class DialogManager : MonoBehaviour
         Get = this;
         m_audioSource = GetComponent<AudioSource>();
     }
-
-    private Dialog m_currentDialog;
-    private AudioSource m_audioSource;
-    private int m_index;
-    private RepeatingCountdown m_countdown;
 
     private void Update()
     {
