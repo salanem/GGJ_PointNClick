@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Response", menuName = "Response")]
+[CreateAssetMenu(fileName = "New Response", menuName = "Data/Response")]
 public class Response : ScriptableObject
 {
     public Dialog[] m_PossibleDialogs;

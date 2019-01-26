@@ -18,6 +18,10 @@ public class UIManager : MonoBehaviour
     public Color m_InteractionHighlightedColor;
     public Button[] m_InteractionButtons;
 
+    public RectTransform m_QuestPanel;
+    public TextMeshProUGUI m_QuestName;
+    public TextMeshProUGUI m_QuestDescription;
+
     private void Awake()
     {
         if (Get != null)
@@ -131,6 +135,31 @@ public class UIManager : MonoBehaviour
         GameManager.Get.InventoryRow--;
     }
 
+    public void DisplayHoverItem(ClickableObject _object)
+    {
+        if (_object == null)
+        {
+            m_HoverText.text = "";
+            return;
+        }
+        m_HoverText.text = _object.m_ObjectName;
+    }
+
+    public void ToggleDisplayCurrentQuest(Quest _quest)
+    {
+        if (_quest == null)
+        {
+            m_QuestName.text = "You have no task";
+            m_QuestDescription.text = "";
+        }
+        else
+        {
+            m_QuestName.text = _quest.QuestName;
+            m_QuestDescription.text = _quest.Goal;
+        }
+        m_QuestPanel.gameObject.SetActive(!m_QuestPanel.gameObject.activeSelf);
+    }
+
     private void ResetItemHighlighting()
     {
         foreach (Image image in m_FirstRowItems)
@@ -150,15 +179,5 @@ public class UIManager : MonoBehaviour
         {
             button.GetComponentInChildren<Text>().color = m_InteractionDefaultColor;
         }
-    }
-
-    public void DisplayHoverItem(ClickableObject _object)
-    {
-        if (_object == null)
-        {
-            m_HoverText.text = "";
-            return;
-        }
-        m_HoverText.text = _object.m_ObjectName;
     }
 }

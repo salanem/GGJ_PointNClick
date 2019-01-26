@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Interaction", menuName = "Interaction/New Interaction")]
+[CreateAssetMenu(fileName = "New Interaction", menuName = "Data/Interaction/New Interaction")]
 public class InteractionSettings : ScriptableObject
 {
     public bool IsPossible

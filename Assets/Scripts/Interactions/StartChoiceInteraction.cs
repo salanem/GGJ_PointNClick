@@ -14,9 +14,11 @@ namespace Interactions
             }
         }
 
+#pragma warning disable 0649
+        // will be Assigned in the editor
         [SerializeField]
         private Conversation m_conversation;
-
+#pragma warning restore
         public override void Interact()
         {
             base.Interact();

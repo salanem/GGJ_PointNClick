@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Get { get; private set; }
 
+    public Quest CurrentQuest { get; private set; }
     public PickableObject CurrentInventoryItem
     {
         get
@@ -56,14 +57,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Dictionary<string, List<string>> m_activeObjectsByScene = new Dictionary<string, List<string>>();
     public EInteractionType m_CurrentInteractionType;
     public Response m_DefaultSuccessResponse;
     public Response m_DefaultFailedResponse;
     public float m_DefaultTextTime;
     public Scene m_UIScene;
-
+    public Quest m_StartQuest;
     private PickableObject m_currentInventoryItem;
+    private Dictionary<string, List<string>> m_activeObjectsByScene = new Dictionary<string, List<string>>();
     private int m_inventoryRow;
     private List<PickableObject> m_inventoryItems = new List<PickableObject>();
     private List<PickableObject> m_displayedItems;
@@ -84,6 +85,19 @@ public class GameManager : MonoBehaviour
         if (SceneManager.sceneCount == 1)
         {
             SceneManager.LoadScene(m_UIScene, LoadSceneMode.Additive);
+        }
+        CurrentQuest = m_StartQuest;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            UIManager.Get.ToggleDisplayCurrentQuest(CurrentQuest);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            QuestFinished();
         }
     }
 
@@ -202,6 +216,14 @@ public class GameManager : MonoBehaviour
             return m_displayedItems[_index];
         }
         return null;
+    }
+
+    public void QuestFinished()
+    {
+        if (CurrentQuest.FollowUpQuest != null)
+        {
+            CurrentQuest = CurrentQuest.FollowUpQuest;
+        }
     }
 
     public virtual void DisplaySuccessResponse()
