@@ -18,6 +18,6 @@ public class TextBubbleManager : MonoBehaviour
     
     public void DisplayTextBubble(string _text, float _displayTime)
     {
-
+        Debug.Log(_text);
     }
 }

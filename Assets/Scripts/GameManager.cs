@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Get { get; private set; }
 
-    public EInteractionType m_CurrentInteractionType;
     public PickableObject CurrentInventoryItem
     {
         get
@@ -31,13 +30,40 @@ public class GameManager : MonoBehaviour
         {
             // TODO: Highlight
             m_currentInventoryItem = value;
+            UIManager.Get.HightlightItem(m_displayedItems.IndexOf(m_currentInventoryItem));
+        }
+    }
+    public int InventoryRow
+    {
+        get
+        {
+            return m_inventoryRow;
+        }
+        set
+        {
+            m_inventoryRow = Mathf.Clamp(value, 0, (m_inventoryItems.Count - 1) / 3);
+
+            m_displayedItems = new List<PickableObject>();
+            for (int i = 0; i < 6; i++)
+            {
+                if (m_inventoryRow * 3 + i < m_inventoryItems.Count)
+                {
+                    m_displayedItems.Add(m_inventoryItems[m_inventoryRow * 3 + i]);
+                }
+            }
+            UIManager.Get.DisplayInventoryItems(m_displayedItems.ToArray());
         }
     }
 
-    private PickableObject m_currentInventoryItem;
+    public EInteractionType m_CurrentInteractionType;
     public string[] m_DefaultSuccessResponses;
     public string[] m_DefaultFailedResponses;
     public float m_DefaultTextTime;
+
+    private PickableObject m_currentInventoryItem;
+    private int m_inventoryRow;
+    private List<PickableObject> m_inventoryItems = new List<PickableObject>();
+    private List<PickableObject> m_displayedItems;
 
     private void Awake()
     {
@@ -49,18 +75,39 @@ public class GameManager : MonoBehaviour
         Get = this;
     }
 
+    private void OnGUI()
+    {
+        GUILayout.Label(m_CurrentInteractionType.ToString());
+    }
+
     public void AddToInventory(PickableObject _object)
     {
-
+        m_inventoryItems.AddUnique(_object);
+        InventoryRow = InventoryRow;
     }
 
     public void RemoveFromInventory(PickableObject _object)
     {
-
+        m_inventoryItems.Remove(_object);
+        if (m_currentInventoryItem == _object)
+        {
+            SelectInventoryItem(null);
+        }
+        InventoryRow = InventoryRow;
     }
 
     public void SelectInventoryItem(PickableObject _object)
     {
-        CurrentInventoryItem = null;
+        CurrentInventoryItem = _object;
+    }
+
+    public void SelectInventoryItem(int _index)
+    {
+        if (_index < 0)
+        {
+            CurrentInventoryItem = null;
+            return;
+        }
+        CurrentInventoryItem = m_displayedItems[_index];
     }
 }
