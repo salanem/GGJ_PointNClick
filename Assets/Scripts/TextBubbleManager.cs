@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TimeUtilities;
 using UnityEngine;
 
 public class TextBubbleManager : MonoBehaviour
 {
     public static TextBubbleManager Get { get; private set; }
+
+    private RepeatingCountdown m_countdown;
 
     private void Awake()
     {

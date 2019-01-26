@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         {
             // TODO: Highlight
             m_currentInventoryItem = value;
-            UIManager.Get.HightlightItem(m_displayedItems.IndexOf(m_currentInventoryItem));
+       //     UIManager.Get.SelectItem(m_displayedItems.IndexOf(m_currentInventoryItem));
         }
     }
     public int InventoryRow
@@ -56,8 +56,8 @@ public class GameManager : MonoBehaviour
     }
 
     public EInteractionType m_CurrentInteractionType;
-    public string[] m_DefaultSuccessResponses;
-    public string[] m_DefaultFailedResponses;
+    public Dialog[] m_DefaultSuccessResponses;
+    public Dialog[] m_DefaultFailedResponses;
     public float m_DefaultTextTime;
 
     private PickableObject m_currentInventoryItem;
@@ -109,5 +109,19 @@ public class GameManager : MonoBehaviour
             return;
         }
         CurrentInventoryItem = m_displayedItems[_index];
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="_index">Index in the visible item list</param>
+    /// <returns></returns>
+    public PickableObject GetObjectFromIndex(int _index)
+    {
+        if (_index >= 0 && _index < m_displayedItems.Count)
+        {
+            return m_displayedItems[_index];
+        }
+        return null;
     }
 }

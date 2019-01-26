@@ -19,7 +19,11 @@ public class ClickableObject : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
-        Debug.Log("MouseDown");
+        Interact();
+    }
+
+    public virtual void Interact()
+    {
         switch (GameManager.Get.m_CurrentInteractionType)
         {
             case EInteractionType.NONE:
@@ -69,15 +73,13 @@ public class ClickableObject : MonoBehaviour
         {
             if (_settings.UseDefaultResponses)
             {
-                TextBubbleManager.Get.DisplayTextBubble(GameManager.Get.m_DefaultFailedResponses.Random(),
-                    GameManager.Get.m_DefaultTextTime);
+                DialogManager.Get.PlayDialog(GameManager.Get.m_DefaultFailedResponses.Random());
             }
             else
             {
                 if (_settings.FailResponses != null && _settings.FailResponses.Length > 0)
                 {
-                    TextBubbleManager.Get.DisplayTextBubble(_settings.FailResponses.Random(),
-                        GameManager.Get.m_DefaultTextTime);
+                    DialogManager.Get.PlayDialog(_settings.FailResponses.Random());
                 }
             }
         }
@@ -85,15 +87,14 @@ public class ClickableObject : MonoBehaviour
         {
             if (_settings.UseDefaultResponses)
             {
-                TextBubbleManager.Get.DisplayTextBubble(GameManager.Get.m_DefaultSuccessResponses.Random(),
-                    GameManager.Get.m_DefaultTextTime);
+                DialogManager.Get.PlayDialog(GameManager.Get.m_DefaultSuccessResponses.Random());
+
             }
             else
             {
                 if (_settings.SuccessResponses != null && _settings.SuccessResponses.Length > 0)
                 {
-                    TextBubbleManager.Get.DisplayTextBubble(_settings.SuccessResponses.Random(),
-                        GameManager.Get.m_DefaultTextTime);
+                    DialogManager.Get.PlayDialog(_settings.SuccessResponses.Random());
                 }
             }
             if (_settings.SuccessAnimation != null)
@@ -108,15 +109,13 @@ public class ClickableObject : MonoBehaviour
         {
             if (_settings.UseDefaultResponses)
             {
-                TextBubbleManager.Get.DisplayTextBubble(GameManager.Get.m_DefaultFailedResponses.Random(),
-                    GameManager.Get.m_DefaultTextTime);
+                DialogManager.Get.PlayDialog(GameManager.Get.m_DefaultFailedResponses.Random());
             }
             else
             {
                 if (_settings.FailResponses != null && _settings.FailResponses.Length > 0)
                 {
-                    TextBubbleManager.Get.DisplayTextBubble(_settings.FailResponses.Random(),
-                        GameManager.Get.m_DefaultTextTime);
+                    DialogManager.Get.PlayDialog(_settings.FailResponses.Random());
                 }
             }
         }
@@ -124,15 +123,13 @@ public class ClickableObject : MonoBehaviour
         {
             if (_settings.UseDefaultResponses)
             {
-                TextBubbleManager.Get.DisplayTextBubble(GameManager.Get.m_DefaultSuccessResponses.Random(),
-                    GameManager.Get.m_DefaultTextTime);
+                DialogManager.Get.PlayDialog(GameManager.Get.m_DefaultSuccessResponses.Random());
             }
             else
             {
                 if (_settings.SuccessResponses != null && _settings.SuccessResponses.Length > 0)
                 {
-                    TextBubbleManager.Get.DisplayTextBubble(_settings.SuccessResponses.Random(),
-                        GameManager.Get.m_DefaultTextTime);
+                    DialogManager.Get.PlayDialog(_settings.SuccessResponses.Random());
                 }
             }
             if (_settings.SuccessAnimation != null)
