@@ -43,6 +43,16 @@ public class UIManager : MonoBehaviour
         StartCoroutine(AsyncFadeInOut(_blackTime, _fadeDuration));
     }
 
+    public void FadeIn(float _fadeDuration)
+    {
+        StartCoroutine(AsyncFadeToColor(new Color(1, 1, 1, 0), _fadeDuration));
+    }
+
+    public void FadeOut(float _fadeDuration)
+    {
+        StartCoroutine(AsyncFadeToColor(Color.black, _fadeDuration));
+    }
+
     private IEnumerator AsyncFadeInOut(float _blackTime, float _fadeDuration)
     {
         StartCoroutine(AsyncFadeToColor(Color.black, _fadeDuration));
@@ -80,6 +90,10 @@ public class UIManager : MonoBehaviour
         }
         ResetItemHighlighting();
         GameManager.Get.SelectInventoryItem(_index);
+        if (_index < 0)
+        {
+            return;
+        }
         if (_index < 3)
         {
             m_FirstRowItems[_index].color = Color.green;

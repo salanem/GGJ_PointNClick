@@ -10,15 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26b30b24ff3d7274cb91801ecdc9edf0, type: 3}
-  m_Name: MainHallPullCarpet
+  m_Name: MainHallPickUpFireExtinguisher
   m_EditorClassIdentifier: 
   m_PossibleDialogs:
-  - {fileID: 11400000, guid: c4b2a60c1316db045841312e532c1462, type: 2}
-  - {fileID: 11400000, guid: df5b8cd5322b7234b862bb49a68427b5, type: 2}
-  - {fileID: 11400000, guid: 41f1ac20b769a7245b5d857853b77da7, type: 2}
-  - {fileID: 11400000, guid: ad93d1a6128d5a04a8965b72c611f059, type: 2}
-  m_PlayAll: 1
-  m_PlayInOrder: 1
+  - {fileID: 11400000, guid: 58a5fd3d27280da4f817de612574d9d5, type: 2}
+  m_PlayAll: 0
+  m_PlayInOrder: 0
   m_PseudoRandom: 0
   m_RepeatWhole: 0
   m_RepeatLast: 0

@@ -9,7 +9,7 @@ public class ClickableObject : MonoBehaviour
     public string m_ObjectName;
     public bool m_InitalActive;
 
-    protected Dictionary<EInteractionType, List<Interaction>> m_interactions 
+    protected Dictionary<EInteractionType, List<Interaction>> m_interactions
         = new Dictionary<EInteractionType, List<Interaction>>();
 
     protected virtual void OnMouseEnter()
@@ -35,7 +35,7 @@ public class ClickableObject : MonoBehaviour
         }
         if (!m_interactions.ContainsKey(_interaction.InteractionType))
         {
-        m_interactions.Add(_interaction.InteractionType, new List<Interaction>());
+            m_interactions.Add(_interaction.InteractionType, new List<Interaction>());
         }
         m_interactions[_interaction.InteractionType].Add(_interaction);
     }
@@ -49,6 +49,9 @@ public class ClickableObject : MonoBehaviour
                 interaction.Interact();
             }
         }
-       GameManager.Get.DisplayFailResponse();
+        else
+        {
+            GameManager.Get.DisplayFailResponse();
+        }
     }
 }

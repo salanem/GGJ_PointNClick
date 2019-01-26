@@ -19,11 +19,20 @@ namespace Interactions
         [SerializeField]
         private ClickableObject m_toActivate;
 #pragma warning restore 0649
+
         public override void Interact()
         {
             base.Interact();
-            ToActivate.gameObject.SetActive(true);
-            gameObject.SetActive(false);
+        }
+
+        public override void OnDialogEvent(Dialog _dialog)
+        {
+            base.OnDialogEvent(_dialog);
+            if (_dialog.m_DialogEventType == EDialogEventType.CUSTOM)
+            {
+                ToActivate.gameObject.SetActive(true);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

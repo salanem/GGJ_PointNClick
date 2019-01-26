@@ -79,13 +79,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         Get = this;
-        DontDestroyOnLoad(this);
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
 
-        if (SceneManager.sceneCount == 1)
-        {
-            SceneManager.LoadScene(m_UIScene, LoadSceneMode.Additive);
-        }
         CurrentQuest = m_StartQuest;
     }
 
@@ -98,6 +93,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             QuestFinished();
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            UIManager.Get.SelectItem(-1);
         }
     }
 
@@ -177,6 +176,7 @@ public class GameManager : MonoBehaviour
     {
         m_inventoryItems.AddUnique(_object);
         InventoryRow = InventoryRow;
+        UIManager.Get.DisplayHoverItem(null);
     }
 
     public void RemoveFromInventory(PickableObject _object)
@@ -246,7 +246,7 @@ public class GameManager : MonoBehaviour
         {
             if (_response.m_RepeatLast)
             {
-                DialogManager.Get.PlayDialog(_response.m_PossibleDialogs.Last());
+                DialogManager.Get.PlayDialog(_response.m_PossibleDialogs.Last(), null);
                 return;
             }
             if (_response.m_RepeatWhole)
@@ -278,18 +278,18 @@ public class GameManager : MonoBehaviour
         }
         if (_response.m_PlayInOrder)
         {
-            DialogManager.Get.PlayDialog(dialogsLeft[0]);
+            DialogManager.Get.PlayDialog(dialogsLeft[0], null);
             dialogsLeft.RemoveAt(0);
         }
         else if (_response.m_PseudoRandom)
         {
             Dialog dialog = dialogsLeft.Random();
-            DialogManager.Get.PlayDialog(dialog);
+            DialogManager.Get.PlayDialog(dialog, null);
             dialogsLeft.Remove(dialog);
         }
         else
         {
-            DialogManager.Get.PlayDialog(dialogsLeft.Random());
+            DialogManager.Get.PlayDialog(dialogsLeft.Random(), null);
         }
     }
 
@@ -299,7 +299,7 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitUntil(() =>
             !DialogManager.Get.IsPlayingDialog);
-            DialogManager.Get.PlayDialog(m_dialogsLeft[_response][0]);
+            DialogManager.Get.PlayDialog(m_dialogsLeft[_response][0], null);
             m_dialogsLeft[_response].RemoveAt(0);
         }
         m_playAllCoroutine = null;

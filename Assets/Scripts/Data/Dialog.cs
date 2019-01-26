@@ -9,6 +9,16 @@ public class Dialog : ScriptableObject
     public TextInfo[] m_Text;
     public bool m_AutoPlay;
     public float m_TimeBetweenClips;
+    public bool m_TriggerDialogEvent;
+    public EDialogEventType m_DialogEventType;
+}
+
+public enum EDialogEventType
+{
+    NONE,
+    FADE_IN,
+    FADE_OUT,
+    CUSTOM
 }
 
 [System.Serializable]
