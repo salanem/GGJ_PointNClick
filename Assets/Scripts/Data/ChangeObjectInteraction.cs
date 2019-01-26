@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Use Interaction", menuName = "Interaction/New Use Interaction")]
+[CreateAssetMenu(fileName = "New Use Interaction", menuName = "Data/Interaction/New Use Interaction")]
 public class UseInteractionSettings : InteractionSettings
 {
     public string CanBeUsedWith { get { return m_canBeUsedWith; } }

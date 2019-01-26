@@ -1862,6 +1862,7 @@ MonoBehaviour:
     m_sceneObject: {fileID: 102900000, guid: 3b92a1e1e0938774bbb5fc84f32dbb5e, type: 3}
     m_sceneName: UIScene
     m_buildIndex: 1
+  m_StartQuest: {fileID: 11400000, guid: f03a8e4ebded44347a40d8a8cfd16afe, type: 2}
 --- !u!4 &1999217210
 Transform:
   m_ObjectHideFlags: 0

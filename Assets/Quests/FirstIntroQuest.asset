@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ced43dfa3d94d04ab94a9573bf09286, type: 3}
+  m_Name: FirstIntroQuest
+  m_EditorClassIdentifier: 
+  m_questName: First Intro Quest
+  m_goal: Find a place to sleep for the night.
+  m_locations:
+  - Main Hall
+  - Bedroom
+  m_followUpQuest: {fileID: 11400000, guid: 26a4631852c8d8a4db41b4300b840659, type: 2}
