@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Get { get; private set; }
 
     public Image m_FadeImage;
+    public TextMeshProUGUI m_HoverText;
 
     public Image[] m_FirstRowItems;
     public Image[] m_SecondRowItems;
+
+    public Color m_InteractionDefaultColor;
+    public Color m_InteractionHighlightedColor;
+    public Button[] m_InteractionButtons;
 
     private void Awake()
     {
@@ -25,6 +31,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         DisplayInventoryItems(new PickableObject[0]);
+        ResetInteractionHighlighting();
     }
 
     public void FadeInOut(float _blackTime, float _fadeDuration)
@@ -56,6 +63,8 @@ public class UIManager : MonoBehaviour
     public void SetInteractionType(int _type)
     {
         GameManager.Get.m_CurrentInteractionType = (EInteractionType)_type;
+        ResetInteractionHighlighting();
+        m_InteractionButtons[_type - 1].GetComponentInChildren<Text>().color = m_InteractionHighlightedColor;
     }
 
     public void SelectItem(int _index)
@@ -65,7 +74,7 @@ public class UIManager : MonoBehaviour
             GameManager.Get.GetObjectFromIndex(_index).Interact();
             return;
         }
-        ResetHighlighting();
+        ResetItemHighlighting();
         GameManager.Get.SelectInventoryItem(_index);
         if (_index < 3)
         {
@@ -122,7 +131,7 @@ public class UIManager : MonoBehaviour
         GameManager.Get.InventoryRow--;
     }
 
-    private void ResetHighlighting()
+    private void ResetItemHighlighting()
     {
         foreach (Image image in m_FirstRowItems)
         {
@@ -133,5 +142,23 @@ public class UIManager : MonoBehaviour
         {
             image.color = Color.white;
         }
+    }
+
+    private void ResetInteractionHighlighting()
+    {
+        foreach (Button button in m_InteractionButtons)
+        {
+            button.GetComponentInChildren<Text>().color = m_InteractionDefaultColor;
+        }
+    }
+
+    public void DisplayHoverItem(ClickableObject _object)
+    {
+        if (_object == null)
+        {
+            m_HoverText.text = "";
+            return;
+        }
+        m_HoverText.text = _object.m_ObjectName;
     }
 }
