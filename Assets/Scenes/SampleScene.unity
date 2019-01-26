@@ -142,7 +142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1999217210}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &111213238
 MonoBehaviour:
@@ -285,15 +285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ObjectName: 
   m_InitalActive: 1
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
   m_InventorySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Uses: 0
 --- !u!61 &156030787
@@ -396,6 +387,7 @@ GameObject:
   - component: {fileID: 428182099}
   - component: {fileID: 428182098}
   - component: {fileID: 428182097}
+  - component: {fileID: 428182101}
   m_Layer: 0
   m_Name: New Sprite (6)
   m_TagString: Untagged
@@ -417,15 +409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ObjectName: 
   m_InitalActive: 1
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
   m_InventorySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Uses: 0
 --- !u!61 &428182098
@@ -516,6 +499,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &428182101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428182096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006bd57481bf02f4c9ddd68268b35c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactionType: 1
+  m_settings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
+  m_toActivate: {fileID: 1998788000}
 --- !u!1 &466159764
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,15 +547,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ObjectName: 
   m_InitalActive: 1
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
   m_InventorySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Uses: 0
 --- !u!61 &466159766
@@ -751,49 +740,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &533551010
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 533551011}
-  - component: {fileID: 533551012}
-  m_Layer: 0
-  m_Name: ReponseManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &533551011
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533551010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1999217210}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &533551012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533551010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a23586aa675338b468648a1e0816cc6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &562976474
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,22 +816,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 673898025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 015d708eeb583e142b1ddd1d9290a038, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ad6d938e65486c4288e2d9f19dcfc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ObjectName: 
   m_InitalActive: 0
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
-  m_InventorySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Uses: 0
 --- !u!212 &673898027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -986,6 +921,7 @@ GameObject:
   - component: {fileID: 1006586223}
   - component: {fileID: 1006586222}
   - component: {fileID: 1006586221}
+  - component: {fileID: 1006586225}
   m_Layer: 0
   m_Name: New Sprite (9)
   m_TagString: Untagged
@@ -1007,15 +943,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ObjectName: 
   m_InitalActive: 1
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
   m_InventorySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Uses: 0
 --- !u!61 &1006586222
@@ -1106,6 +1033,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1006586225
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006586220}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5fc6a93c238aba74487bcc28dee0d952, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1378361588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1064,8 @@ GameObject:
   - component: {fileID: 1378361591}
   - component: {fileID: 1378361590}
   - component: {fileID: 1378361589}
+  - component: {fileID: 1378361594}
+  - component: {fileID: 1378361593}
   m_Layer: 0
   m_Name: New Sprite (4)
   m_TagString: Untagged
@@ -1138,16 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ObjectName: 
-  m_InitalActive: 0
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
+  m_InitalActive: 1
   m_InventorySprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   m_Uses: 0
 --- !u!61 &1378361590
@@ -1238,6 +1177,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1378361593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378361588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae97eaf2972c9249b3046759c954671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactionType: 4
+  m_settings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
+--- !u!114 &1378361594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378361588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6092a334265d0c489e34c3c60e289b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactionType: 1
+  m_settings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
 --- !u!1 &1393981173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,15 +1238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ObjectName: Door
   m_InitalActive: 0
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
   m_InventorySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Uses: 0
 --- !u!61 &1393981175
@@ -1399,7 +1357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1999217210}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1782794322
 MonoBehaviour:
@@ -1446,15 +1404,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ObjectName: 
   m_InitalActive: 0
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
   m_InventorySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Uses: 0
 --- !u!61 &1885001235
@@ -1578,15 +1527,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ObjectName: Cactus
   m_InitalActive: 1
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
   m_InventorySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Uses: 0
 --- !u!61 &1949130396
@@ -1755,6 +1695,7 @@ GameObject:
   - component: {fileID: 1998788002}
   - component: {fileID: 1998788001}
   - component: {fileID: 1998788000}
+  - component: {fileID: 1998788004}
   m_Layer: 0
   m_Name: New Sprite (1)
   m_TagString: Untagged
@@ -1776,15 +1717,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ObjectName: Book
   m_InitalActive: 0
-  m_OpenSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_CloseSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_GiveSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PickUpSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_LookAtSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_TalkToSettings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
-  m_PushSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_PullSettings: {fileID: 11400000, guid: 1bfd1b9c6322b8847881e23d65bc2d43, type: 2}
-  m_UseSettings: {fileID: 0}
   m_InventorySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Uses: 0
 --- !u!61 &1998788001
@@ -1875,6 +1807,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998788004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998787999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006bd57481bf02f4c9ddd68268b35c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactionType: 2
+  m_settings: {fileID: 11400000, guid: 88e6812129eead34e8faf3abf35d5a2f, type: 2}
+  m_toActivate: {fileID: 428182097}
 --- !u!1 &1999217208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,7 +1832,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1999217210}
   - component: {fileID: 1999217209}
-  - component: {fileID: 1999217211}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1906,8 +1852,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CurrentInteractionType: 1
-  m_DefaultSuccessResponse: {fileID: 0}
-  m_DefaultFailedResponse: {fileID: 0}
+  m_DefaultSuccessResponse: {fileID: 11400000, guid: 5a1e0a66fa590f545bc3b4746da9d924,
+    type: 2}
+  m_DefaultFailedResponse: {fileID: 11400000, guid: 5a1e0a66fa590f545bc3b4746da9d924,
+    type: 2}
   m_DefaultTextTime: 0
   m_UIScene:
     m_scenePath: Assets/Scenes/UIScene.unity
@@ -1925,21 +1873,8 @@ Transform:
   m_LocalPosition: {x: 321.85077, y: 26.543894, z: -2.7315378}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 533551011}
   - {fileID: 111213237}
   - {fileID: 1782794321}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1999217211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999217208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21fe33c3cb5c2514faf28e2f37b9928d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

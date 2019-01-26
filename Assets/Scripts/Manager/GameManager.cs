@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         {
             // TODO: Highlight
             m_currentInventoryItem = value;
-       //     UIManager.Get.SelectItem(m_displayedItems.IndexOf(m_currentInventoryItem));
+            //     UIManager.Get.SelectItem(m_displayedItems.IndexOf(m_currentInventoryItem));
         }
     }
     public int InventoryRow
@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
     private int m_inventoryRow;
     private List<PickableObject> m_inventoryItems = new List<PickableObject>();
     private List<PickableObject> m_displayedItems;
+    private Dictionary<Response, List<Dialog>> m_dialogsLeft = new Dictionary<Response, List<Dialog>>();
+    private Coroutine m_playAllCoroutine;
 
     private void Awake()
     {
@@ -200,5 +202,84 @@ public class GameManager : MonoBehaviour
             return m_displayedItems[_index];
         }
         return null;
+    }
+
+    public virtual void DisplaySuccessResponse()
+    {
+        ShowResponse(m_DefaultSuccessResponse);
+    }
+
+    public virtual void DisplayFailResponse()
+    {
+        ShowResponse(m_DefaultFailedResponse);
+    }
+
+    private void ShowResponse(Response _response)
+    {
+        if (!m_dialogsLeft.ContainsKey(_response))
+        {
+            m_dialogsLeft.Add(_response, new List<Dialog>(_response.m_PossibleDialogs));
+        }
+        if (m_dialogsLeft[_response].Count == 0)
+        {
+            if (_response.m_RepeatLast)
+            {
+                DialogManager.Get.PlayDialog(_response.m_PossibleDialogs.Last());
+                return;
+            }
+            if (_response.m_RepeatWhole)
+            {
+                m_dialogsLeft[_response] = new List<Dialog>(_response.m_PossibleDialogs);
+            }
+        }
+        if (m_playAllCoroutine != null)
+        {
+            StopCoroutine(m_playAllCoroutine);
+        }
+        if (_response.m_PlayAll)
+        {
+            DialogManager.Get.StopDialog();
+            m_playAllCoroutine = StartCoroutine(PlayAll(_response));
+        }
+        else
+        {
+            PlayOneDialog(_response);
+        }
+    }
+
+    private void PlayOneDialog(Response _response)
+    {
+        List<Dialog> dialogsLeft = m_dialogsLeft[_response];
+        if (dialogsLeft.Count == 0)
+        {
+            return;
+        }
+        if (_response.m_PlayInOrder)
+        {
+            DialogManager.Get.PlayDialog(dialogsLeft[0]);
+            dialogsLeft.RemoveAt(0);
+        }
+        else if (_response.m_PseudoRandom)
+        {
+            Dialog dialog = dialogsLeft.Random();
+            DialogManager.Get.PlayDialog(dialog);
+            dialogsLeft.Remove(dialog);
+        }
+        else
+        {
+            DialogManager.Get.PlayDialog(dialogsLeft.Random());
+        }
+    }
+
+    private IEnumerator PlayAll(Response _response)
+    {
+        while (m_dialogsLeft[_response].Count > 0)
+        {
+            yield return new WaitUntil(() =>
+            !DialogManager.Get.IsPlayingDialog);
+            DialogManager.Get.PlayDialog(m_dialogsLeft[_response][0]);
+            m_dialogsLeft[_response].RemoveAt(0);
+        }
+        m_playAllCoroutine = null;
     }
 }
