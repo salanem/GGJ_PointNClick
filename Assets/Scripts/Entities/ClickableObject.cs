@@ -7,60 +7,15 @@ public class ClickableObject : MonoBehaviour
 {
     public string m_ObjectName;
 
-    public bool m_CanBeOpend;
-    public bool m_UseDefaultResponsesForOpen = true;
-    public string[] m_OpenFailedResponses;
-    public string[] m_OpenSuccessResponses;
-    public Animation m_OpenAnimation;
-
-    public bool m_CanBeClosed;
-    public bool m_UseDefaultResponsesForClose = true;
-    public string[] m_CloseFailedResponses;
-    public string[] m_CloseSuccessResponses;
-    public Animation m_CloseAnimation;
-
-    public bool m_CanBeGiven;
-    public bool m_UseDefaultResponsesForGive = true;
-    public string[] m_GiveFailedResponses;
-    public string[] m_GiveSuccessResponses;
-    public Animation m_GiveAnimation;
-
-    public bool m_CanBePickedUp;
-    public bool m_UseDefaultResponsesForPickUp = true;
-    public string[] m_PickUpFailedResponses;
-    public string[] m_PickUpSuccessResponses;
-    public Animation m_PickUpAnimation;
-
-    public bool m_CanBeLookedAt;
-    public bool m_UseDefaultResponsesForLookAt = true;
-    public string[] m_LookAtFailedResponses;
-    public string[] m_LookAtSuccessResponses;
-    public Animation m_LookAtAnimation;
-
-    public bool m_CanBeTalkedTo;
-    public bool m_UseDefaultResponsesForTalkTo = true;
-    public string[] m_TalkToFailedResponses;
-    public string[] m_TalkToSuccessResponses;
-    public Animation m_TalkToAnimation;
-
-    public bool m_CanBePushed;
-    public bool m_UseDefaultResponsesForPush = true;
-    public string[] m_PushFailedResponses;
-    public string[] m_PushSuccessResponses;
-    public Animation m_PushAnimation;
-
-    public bool m_CanBePulled;
-    public bool m_UseDefaultResponsesForPull = true;
-    public string[] m_PullFailedResponses;
-    public string[] m_PullSuccessResponses;
-    public Animation m_PullAnimation;
-
-    public bool m_CanBeUsed;
-    public bool m_UseDefaultResponsesForUse = true;
-    public string m_CanBeUsedWith;
-    public string[] m_UseFailedResponses;
-    public string[] m_UseSuccessResponses;
-    public Animation m_UseAnimation;
+    public InteractionSettings m_OpenSettings;
+    public InteractionSettings m_CloseSettings;
+    public InteractionSettings m_GiveSettings;
+    public InteractionSettings m_PickUpSettings;
+    public InteractionSettings m_LookAtSettings;
+    public InteractionSettings m_TalkToSettings;
+    public InteractionSettings m_PushSettings;
+    public InteractionSettings m_PullSettings;
+    public UseInteractionSettings m_UseSettings;
 
     protected virtual void OnMouseDown()
     {
@@ -70,103 +25,139 @@ public class ClickableObject : MonoBehaviour
             case EInteractionType.NONE:
                 break;
             case EInteractionType.OPEN:
-                Respond(m_CanBeOpend, m_UseDefaultResponsesForOpen,
-                    m_OpenSuccessResponses, m_OpenFailedResponses, m_OpenAnimation);
+                Respond(m_OpenSettings);
                 break;
             case EInteractionType.CLOSE:
-                Respond(m_CanBeClosed, m_UseDefaultResponsesForClose,
-                    m_CloseSuccessResponses, m_CloseFailedResponses, m_CloseAnimation);
+                Respond(m_CloseSettings);
                 break;
             case EInteractionType.GIVE:
-                Respond(m_CanBeGiven, m_UseDefaultResponsesForGive,
-                    m_GiveSuccessResponses, m_GiveFailedResponses, m_GiveAnimation);
+                Respond(m_GiveSettings);
                 break;
             case EInteractionType.PICK_UP:
-                Respond(m_CanBePickedUp, m_UseDefaultResponsesForPickUp,
-                    m_PickUpSuccessResponses, m_PickUpFailedResponses, m_PickUpAnimation);
+                Respond(m_PickUpSettings);
+                if (m_PickUpSettings.IsPossible)
+                {
+                    if (this is PickableObject)
+                    {
+                        GameManager.Get.AddToInventory((PickableObject)this);
+                    }
+                }
                 break;
             case EInteractionType.LOOK_AT:
-                Respond(m_CanBeLookedAt, m_UseDefaultResponsesForLookAt,
-                  m_LookAtSuccessResponses, m_LookAtFailedResponses, m_LookAtAnimation);
+                Respond(m_LookAtSettings);
                 break;
             case EInteractionType.TALK_TO:
-                Respond(m_CanBeTalkedTo, m_UseDefaultResponsesForTalkTo,
-                  m_TalkToSuccessResponses, m_TalkToFailedResponses, m_TalkToAnimation);
+                Respond(m_TalkToSettings);
                 break;
             case EInteractionType.PUSH:
-                Respond(m_CanBePushed, m_UseDefaultResponsesForPush,
-                  m_PushSuccessResponses, m_PushFailedResponses, m_PushAnimation);
+                Respond(m_PushSettings);
                 break;
             case EInteractionType.PULL:
-                Respond(m_CanBePulled, m_UseDefaultResponsesForPull,
-                  m_PullSuccessResponses, m_PullFailedResponses, m_PullAnimation);
+                Respond(m_PullSettings);
                 break;
             case EInteractionType.USE:
-                if (!m_CanBeUsed)
-                {
-                    Respond(m_CanBeUsed, m_UseDefaultResponsesForUse,
-                     m_UseSuccessResponses, m_UseFailedResponses, m_UseAnimation);
-                    break;
-                }
-                if (GameManager.Get.CurrentInventoryItem.m_ObjectName
-                    == m_CanBeUsedWith)
-                {
-                    Respond(true, m_UseDefaultResponsesForUse,
-                      m_UseSuccessResponses, m_UseFailedResponses, m_UseAnimation);
-
-                    GameManager.Get.CurrentInventoryItem.Used();
-                }
-                else
-                {
-                    Respond(false, m_UseDefaultResponsesForUse,
-                     m_UseSuccessResponses, m_UseFailedResponses, m_UseAnimation);
-                }
+                Use(m_UseSettings);
                 break;
             default:
                 break;
         }
     }
 
-    protected virtual void Respond(bool _isPossible, bool _defaultResponse,
-        string[] _successResponses, string[] _failResponses, Animation _successAnimation)
+    protected virtual void Respond(InteractionSettings _settings)
     {
-        if (!_isPossible)
+        if (!_settings.IsPossible)
         {
-            if (_defaultResponse)
+            if (_settings.UseDefaultResponses)
             {
                 TextBubbleManager.Get.DisplayTextBubble(GameManager.Get.m_DefaultFailedResponses.Random(),
                     GameManager.Get.m_DefaultTextTime);
             }
             else
             {
-                if (_failResponses != null && _failResponses.Length > 0)
+                if (_settings.FailResponses != null && _settings.FailResponses.Length > 0)
                 {
-                    TextBubbleManager.Get.DisplayTextBubble(_failResponses.Random(),
+                    TextBubbleManager.Get.DisplayTextBubble(_settings.FailResponses.Random(),
                         GameManager.Get.m_DefaultTextTime);
                 }
             }
         }
         else
         {
-            if (_defaultResponse)
+            if (_settings.UseDefaultResponses)
             {
                 TextBubbleManager.Get.DisplayTextBubble(GameManager.Get.m_DefaultSuccessResponses.Random(),
                     GameManager.Get.m_DefaultTextTime);
             }
             else
             {
-                if (_successResponses != null && _successResponses.Length > 0)
+                if (_settings.SuccessResponses != null && _settings.SuccessResponses.Length > 0)
                 {
-                    TextBubbleManager.Get.DisplayTextBubble(_successResponses.Random(),
+                    TextBubbleManager.Get.DisplayTextBubble(_settings.SuccessResponses.Random(),
                         GameManager.Get.m_DefaultTextTime);
                 }
             }
-            if (_successAnimation != null)
+            if (_settings.SuccessAnimation != null)
             {
-                _successAnimation.Play();
+                _settings.SuccessAnimation.Play();
+            }
+        }
+    }
+    protected virtual void Respond(InteractionSettings _settings, bool _isPossible)
+    {
+        if (!_isPossible)
+        {
+            if (_settings.UseDefaultResponses)
+            {
+                TextBubbleManager.Get.DisplayTextBubble(GameManager.Get.m_DefaultFailedResponses.Random(),
+                    GameManager.Get.m_DefaultTextTime);
+            }
+            else
+            {
+                if (_settings.FailResponses != null && _settings.FailResponses.Length > 0)
+                {
+                    TextBubbleManager.Get.DisplayTextBubble(_settings.FailResponses.Random(),
+                        GameManager.Get.m_DefaultTextTime);
+                }
+            }
+        }
+        else
+        {
+            if (_settings.UseDefaultResponses)
+            {
+                TextBubbleManager.Get.DisplayTextBubble(GameManager.Get.m_DefaultSuccessResponses.Random(),
+                    GameManager.Get.m_DefaultTextTime);
+            }
+            else
+            {
+                if (_settings.SuccessResponses != null && _settings.SuccessResponses.Length > 0)
+                {
+                    TextBubbleManager.Get.DisplayTextBubble(_settings.SuccessResponses.Random(),
+                        GameManager.Get.m_DefaultTextTime);
+                }
+            }
+            if (_settings.SuccessAnimation != null)
+            {
+                _settings.SuccessAnimation.Play();
             }
         }
     }
 
+    protected virtual void Use(UseInteractionSettings _settings)
+    {
+        if (!_settings.IsPossible)
+        {
+            Respond(_settings);
+        }
+        if (string.IsNullOrWhiteSpace(_settings.CanBeUsedWith) || GameManager.Get.CurrentInventoryItem.m_ObjectName
+            == _settings.CanBeUsedWith)
+        {
+            Respond(_settings);
 
+            GameManager.Get.CurrentInventoryItem.Used();
+        }
+        else
+        {
+            Respond(_settings, false);
+        }
+    }
 }
