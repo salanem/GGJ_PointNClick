@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum EInteractionType
 {
@@ -55,10 +56,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public Dictionary<string, List<string>> m_activeObjectsByScene = new Dictionary<string, List<string>>();
     public EInteractionType m_CurrentInteractionType;
     public Dialog[] m_DefaultSuccessResponses;
     public Dialog[] m_DefaultFailedResponses;
     public float m_DefaultTextTime;
+    public Scene m_UIScene;
 
     private PickableObject m_currentInventoryItem;
     private int m_inventoryRow;
@@ -73,11 +76,85 @@ public class GameManager : MonoBehaviour
             return;
         }
         Get = this;
+        DontDestroyOnLoad(this);
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+
+        if (SceneManager.sceneCount == 1)
+        {
+            SceneManager.LoadScene(m_UIScene, LoadSceneMode.Additive);
+        }
+    }
+
+    private void SceneManager_sceneLoaded(UnityEngine.SceneManagement.Scene _scene, LoadSceneMode _mode)
+    {
+        if (_scene.name == "UIScene")
+        {
+            return;
+        }
+        SceneManager.SetActiveScene(_scene);
+        if (!m_activeObjectsByScene.ContainsKey(_scene.path))
+        {
+            // First Load, activate only initial objects
+            List<string> activeObjects = new List<string>();
+            ClickableObject[] allObjects = FindObjectsOfType<ClickableObject>();
+
+            foreach (ClickableObject obj in allObjects)
+            {
+                if (obj.m_InitalActive)
+                {
+                    activeObjects.Add(obj.m_ObjectName + obj.name);
+                    obj.gameObject.SetActive(true);
+                }
+                else
+                {
+                    obj.gameObject.SetActive(false);
+                }
+            }
+            m_activeObjectsByScene.Add(_scene.path, activeObjects);
+        }
+        else
+        {
+            // reload
+            ClickableObject[] allObjects = FindObjectsOfType<ClickableObject>();
+            List<string> activeObjects = m_activeObjectsByScene[_scene.path];
+            foreach (ClickableObject obj in allObjects)
+            {
+                if (activeObjects.Contains(obj.m_ObjectName + obj.name))
+                {
+                    obj.gameObject.SetActive(true);
+                }
+                else
+                {
+                    obj.gameObject.SetActive(false);
+                }
+            }
+        }
     }
 
     private void OnGUI()
     {
         GUILayout.Label(m_CurrentInteractionType.ToString());
+    }
+
+    public void LoadRoom(Scene _newScene)
+    {
+        SaveSceneState();
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadScene(_newScene, LoadSceneMode.Additive);
+    }
+
+    private void SaveSceneState()
+    {
+        ClickableObject[] allObjects = FindObjectsOfType<ClickableObject>();
+        List<string> activeObjects = new List<string>();
+        foreach (ClickableObject obj in allObjects)
+        {
+            if (obj.gameObject.activeInHierarchy)
+            {
+                activeObjects.Add(obj.m_ObjectName + obj.name);
+            }
+        }
+        m_activeObjectsByScene[SceneManager.GetActiveScene().path] = activeObjects;
     }
 
     public void AddToInventory(PickableObject _object)

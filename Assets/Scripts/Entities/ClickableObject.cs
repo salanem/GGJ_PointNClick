@@ -6,6 +6,7 @@ using UnityEngine;
 public class ClickableObject : MonoBehaviour
 {
     public string m_ObjectName;
+    public bool m_InitalActive;
 
     public InteractionSettings m_OpenSettings;
     public InteractionSettings m_CloseSettings;
@@ -16,6 +17,16 @@ public class ClickableObject : MonoBehaviour
     public InteractionSettings m_PushSettings;
     public InteractionSettings m_PullSettings;
     public UseInteractionSettings m_UseSettings;
+
+    protected virtual void OnMouseEnter()
+    {
+        UIManager.Get.DisplayHoverItem(this);
+    }
+
+    protected virtual void OnMouseExit()
+    {
+        UIManager.Get.DisplayHoverItem(null);
+    }
 
     protected virtual void OnMouseDown()
     {
