@@ -660,7 +660,11 @@ GameObject:
   - component: {fileID: 1386024303}
   - component: {fileID: 1386024302}
   - component: {fileID: 1386024301}
+  - component: {fileID: 1386024306}
   - component: {fileID: 1386024304}
+  - component: {fileID: 1386024305}
+  - component: {fileID: 1386024308}
+  - component: {fileID: 1386024307}
   m_Layer: 0
   m_Name: Cupboard
   m_TagString: Untagged
@@ -769,9 +773,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interactionType: 9
-  m_settings: {fileID: 0}
+  m_settings: {fileID: 11400000, guid: 19ebfa8b8501d7c4fa0bcefc37a5a3cc, type: 2}
   m_toActivate: {fileID: 0}
   m_requiredObjectName: Fire Extinguisher
+--- !u!114 &1386024305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386024300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6092a334265d0c489e34c3c60e289b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactionType: 5
+  m_settings: {fileID: 11400000, guid: 2a47f9396705afd479e45c9445f94266, type: 2}
+--- !u!114 &1386024306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386024300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad6d938e65486c4288e2d9f19dcfc2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObjectName: Cupboard
+  m_InitalActive: 1
+--- !u!114 &1386024307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386024300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6092a334265d0c489e34c3c60e289b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactionType: 7
+  m_settings: {fileID: 11400000, guid: d0b2db0248d6fdb43878b57e6612510c, type: 2}
+--- !u!114 &1386024308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386024300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6092a334265d0c489e34c3c60e289b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactionType: 8
+  m_settings: {fileID: 11400000, guid: d0b2db0248d6fdb43878b57e6612510c, type: 2}
 --- !u!1 &1498925408
 GameObject:
   m_ObjectHideFlags: 0

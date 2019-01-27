@@ -124,8 +124,11 @@ public class DialogManager : MonoBehaviour
         }
         if (m_currentDialog.m_AudioClips.Length > m_index)
         {
-            m_audioSource.PlayOneShot(m_currentDialog.m_AudioClips[m_index]);
-            playedSomething = true;
+            if (m_currentDialog.m_AudioClips[m_index] != null)
+            {
+                m_audioSource.PlayOneShot(m_currentDialog.m_AudioClips[m_index]);
+                playedSomething = true;
+            }
         }
         if (!playedSomething && m_currentInteraction != null)
         {

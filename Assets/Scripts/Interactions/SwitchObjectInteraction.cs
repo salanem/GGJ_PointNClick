@@ -32,6 +32,7 @@ namespace Interactions
             {
                 ToActivate.gameObject.SetActive(true);
                 gameObject.SetActive(false);
+                UIManager.Get.DisplayHoverItem(null);
             }
         }
     }

@@ -23,7 +23,8 @@ namespace Interactions
             {
                 base.Interact();
             }
-            else if (RequiredObjectName == GameManager.Get.CurrentInventoryItem.m_ObjectName)
+            else if (GameManager.Get.CurrentInventoryItem != null
+                && RequiredObjectName == GameManager.Get.CurrentInventoryItem.m_ObjectName)
             {
                 base.Interact();
             }
@@ -51,12 +52,14 @@ namespace Interactions
                 {
                     ToActivate?.gameObject.SetActive(true);
                     gameObject.SetActive(false);
+                    UIManager.Get.DisplayHoverItem(null);
                     GameManager.Get.CurrentInventoryItem.Used();
                 }
                 else if (RequiredObjectName == GameManager.Get.CurrentInventoryItem.m_ObjectName)
                 {
                     ToActivate?.gameObject.SetActive(true);
                     gameObject.SetActive(false);
+                    UIManager.Get.DisplayHoverItem(null);
                     GameManager.Get.CurrentInventoryItem.Used();
                 }
             }

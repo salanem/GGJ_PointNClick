@@ -184,7 +184,10 @@ public class GameManager : MonoBehaviour
         m_inventoryItems.Remove(_object);
         if (m_currentInventoryItem == _object)
         {
-            SelectInventoryItem(null);
+            EInteractionType tmp = m_CurrentInteractionType;
+            m_CurrentInteractionType = EInteractionType.PICK_UP;
+            UIManager.Get.SelectItem(-1);
+            m_CurrentInteractionType = tmp;
         }
         InventoryRow = InventoryRow;
     }
