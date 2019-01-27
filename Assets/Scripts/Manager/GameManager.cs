@@ -98,6 +98,15 @@ public class GameManager : MonoBehaviour
             UIManager.Get.SelectItem(-1);
             m_CurrentInteractionType = type;
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if (Input.mousePosition.y < Screen.height * 0.2f)
+            {
+                return;
+            }
+            Debug.Log(Input.mousePosition);
+            PlayerCharacter.Get.MoveTo(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
     }
 
     private void SceneManager_sceneLoaded(UnityEngine.SceneManagement.Scene _scene, LoadSceneMode _mode)
