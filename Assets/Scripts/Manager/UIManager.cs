@@ -22,6 +22,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI m_QuestName;
     public TextMeshProUGUI m_QuestDescription;
 
+    public RectTransform m_TextDisplayPanel;
+    public TextMeshProUGUI m_TextDisplay;
+
     private void Awake()
     {
         if (Get != null)
@@ -38,9 +41,30 @@ public class UIManager : MonoBehaviour
         ResetInteractionHighlighting();
     }
 
+    public void DisplayText(string _text)
+    {
+        if (string.IsNullOrWhiteSpace(_text))
+        {
+            m_TextDisplayPanel.gameObject.SetActive(false);
+            return;
+        }
+        m_TextDisplay.text = _text;
+        m_TextDisplayPanel.gameObject.SetActive(true);
+    }
+
     public void FadeInOut(float _blackTime, float _fadeDuration)
     {
         StartCoroutine(AsyncFadeInOut(_blackTime, _fadeDuration));
+    }
+
+    public void FadeIn(float _fadeDuration)
+    {
+        StartCoroutine(AsyncFadeToColor(new Color(1, 1, 1, 0), _fadeDuration));
+    }
+
+    public void FadeOut(float _fadeDuration)
+    {
+        StartCoroutine(AsyncFadeToColor(Color.black, _fadeDuration));
     }
 
     private IEnumerator AsyncFadeInOut(float _blackTime, float _fadeDuration)
@@ -73,13 +97,17 @@ public class UIManager : MonoBehaviour
 
     public void SelectItem(int _index)
     {
-        if (GameManager.Get.m_CurrentInteractionType != EInteractionType.PICK_UP)
+        if (GameManager.Get.m_CurrentInteractionType != EInteractionType.USE)
         {
             GameManager.Get.GetObjectFromIndex(_index).Interact();
             return;
         }
         ResetItemHighlighting();
         GameManager.Get.SelectInventoryItem(_index);
+        if (_index < 0)
+        {
+            return;
+        }
         if (_index < 3)
         {
             m_FirstRowItems[_index].color = Color.green;
@@ -142,7 +170,38 @@ public class UIManager : MonoBehaviour
             m_HoverText.text = "";
             return;
         }
-        m_HoverText.text = _object.m_ObjectName;
+        string action = "";
+        switch (GameManager.Get.m_CurrentInteractionType)
+        {
+            case EInteractionType.OPEN:
+                action = "Open";
+                break;
+            case EInteractionType.CLOSE:
+                action = "Close";
+                break;
+            case EInteractionType.GIVE:
+                action = "Give";
+                break;
+            case EInteractionType.PICK_UP:
+                action = "Pick up";
+                break;
+            case EInteractionType.LOOK_AT:
+                action = "Look at";
+                break;
+            case EInteractionType.TALK_TO:
+                action = "Talk to";
+                break;
+            case EInteractionType.PUSH:
+                action = "Push";
+                break;
+            case EInteractionType.PULL:
+                action = "Pull";
+                break;
+            case EInteractionType.USE:
+                action = "Use";
+                break;
+        }
+        m_HoverText.text = action + " " + _object.m_ObjectName;
     }
 
     public void ToggleDisplayCurrentQuest(Quest _quest)

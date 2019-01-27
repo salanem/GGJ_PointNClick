@@ -9,7 +9,8 @@ public class ClickableObject : MonoBehaviour
     public string m_ObjectName;
     public bool m_InitalActive;
 
-    protected Dictionary<EInteractionType, Interaction> m_interactions = new Dictionary<EInteractionType, Interaction>();
+    protected Dictionary<EInteractionType, List<Interaction>> m_interactions
+        = new Dictionary<EInteractionType, List<Interaction>>();
 
     protected virtual void OnMouseEnter()
     {
@@ -32,21 +33,25 @@ public class ClickableObject : MonoBehaviour
         {
             return;
         }
-        if (m_interactions.ContainsKey(_interaction.InteractionType))
+        if (!m_interactions.ContainsKey(_interaction.InteractionType))
         {
-            Debug.LogWarning($"{gameObject.name} already has an interaction for {_interaction.InteractionType}", this);
-            return;
+            m_interactions.Add(_interaction.InteractionType, new List<Interaction>());
         }
-        m_interactions.Add(_interaction.InteractionType, _interaction);
+        m_interactions[_interaction.InteractionType].Add(_interaction);
     }
 
     public virtual void Interact()
     {
         if (m_interactions.ContainsKey(GameManager.Get.m_CurrentInteractionType))
         {
-            m_interactions[GameManager.Get.m_CurrentInteractionType].Interact();
-            return;
+            foreach (Interaction interaction in m_interactions[GameManager.Get.m_CurrentInteractionType])
+            {
+                interaction.Interact();
+            }
         }
-       GameManager.Get.DisplayFailResponse();
+        else
+        {
+            GameManager.Get.DisplayFailResponse();
+        }
     }
 }

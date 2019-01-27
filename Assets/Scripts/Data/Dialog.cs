@@ -2,13 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Dialog", menuName = "Data/New Dialog")]
+[CreateAssetMenu(fileName = "New Dialog", menuName = "Data/Dialog")]
 public class Dialog : ScriptableObject
 {
     public AudioClip[] m_AudioClips;
     public TextInfo[] m_Text;
     public bool m_AutoPlay;
     public float m_TimeBetweenClips;
+    public bool m_TriggerDialogEvent;
+    public EDialogEventType m_DialogEventType;
+}
+
+public enum EDialogEventType
+{
+    NONE,
+    FADE_IN,
+    FADE_OUT,
+    CUSTOM
 }
 
 [System.Serializable]

@@ -13,7 +13,6 @@ public class PickableObject : ClickableObject
         if (m_Uses == 0)
         {
             GameManager.Get.RemoveFromInventory(this);
-            GameManager.Get.SelectInventoryItem(null);
         }
     }
 }

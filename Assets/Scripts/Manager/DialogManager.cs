@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Interactions;
+using System.Collections;
+using System.Collections.Generic;
 using TimeUtilities;
 using UnityEngine;
 
@@ -19,6 +21,8 @@ public class DialogManager : MonoBehaviour
     private AudioSource m_audioSource;
     private int m_index;
     private RepeatingCountdown m_countdown;
+    private Coroutine m_playAllCoroutine;
+    private Interaction m_currentInteraction;
 
     private void Awake()
     {
@@ -63,12 +67,13 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void PlayDialog(Dialog _dialog)
+    public void PlayDialog(Dialog _dialog, Interaction _interaction)
     {
         if (_dialog == null)
         {
             return;
         }
+        m_currentInteraction = _interaction;
         m_audioSource.Stop();
         m_countdown = new RepeatingCountdown(_dialog.m_TimeBetweenClips);
         m_currentDialog = _dialog;
@@ -82,7 +87,36 @@ public class DialogManager : MonoBehaviour
     public void StopDialog()
     {
         m_audioSource.Stop();
+        if (m_playAllCoroutine != null)
+        {
+            StopCoroutine(m_playAllCoroutine);
+            m_playAllCoroutine = null;
+        }
         m_currentDialog = null;
+    }
+
+    public void PlayAllDialogs(List<Dialog> _dialogs, Interaction _interaction)
+    {
+        StopDialog();
+        m_currentInteraction = _interaction;
+        m_playAllCoroutine = StartCoroutine(PlayAll(_dialogs));
+    }
+
+    private IEnumerator PlayAll(List<Dialog> _dialogs)
+    {
+        while (_dialogs.Count > 0)
+        {
+            yield return new WaitUntil(() =>
+            !IsPlayingDialog);
+            if (_dialogs[0].m_AudioClips.Length == 0
+                && _dialogs[0].m_Text.Length == 0)
+            {
+                yield return new WaitForSeconds(1.0f);
+            }
+            PlayDialog(_dialogs[0], m_currentInteraction);
+            _dialogs.RemoveAt(0);
+        }
+        m_playAllCoroutine = null;
     }
     private bool NextSection()
     {
@@ -90,13 +124,28 @@ public class DialogManager : MonoBehaviour
         m_audioSource.Stop();
         if (m_currentDialog.m_Text.Length > m_index)
         {
-            TextBubbleManager.Get.DisplayTextBubble(m_currentDialog.m_Text[m_index].ToString(), -1);
+            TextBubbleManager.Get.DisplayTextBubble(m_currentDialog.m_Text[m_index].ToString());
             playedSomething = true;
+        }
+        else
+        {
+            TextBubbleManager.Get.DisplayTextBubble("");
         }
         if (m_currentDialog.m_AudioClips.Length > m_index)
         {
-            m_audioSource.PlayOneShot(m_currentDialog.m_AudioClips[m_index]);
-            playedSomething = true;
+            if (m_currentDialog.m_AudioClips[m_index] != null)
+            {
+                m_audioSource.PlayOneShot(m_currentDialog.m_AudioClips[m_index]);
+                playedSomething = true;
+            }
+        }
+        if (!playedSomething && m_currentInteraction != null)
+        {
+            if (m_currentDialog.m_TriggerDialogEvent
+                && m_currentDialog.m_DialogEventType != EDialogEventType.NONE)
+            {
+                m_currentInteraction.OnDialogEvent(m_currentDialog);
+            }
         }
         return playedSomething;
     }

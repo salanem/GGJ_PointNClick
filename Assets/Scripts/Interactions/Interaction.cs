@@ -39,13 +39,28 @@ namespace Interactions
             DisplayResponds();
         }
 
+        public virtual void OnDialogEvent(Dialog _dialog)
+        {
+            switch (_dialog.m_DialogEventType)
+            {
+                case EDialogEventType.FADE_IN:
+                    UIManager.Get.FadeIn(0.5f);
+                    break;
+                case EDialogEventType.FADE_OUT:
+                    UIManager.Get.FadeOut(0.5f);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         protected virtual void DisplayResponds()
         {
             if (!m_settings.IsPossible)
             {
                 if (m_settings.UseDefaultResponses)
                 {
-                    ShowResponse(GameManager.Get.m_DefaultFailedResponse);
+                    GameManager.Get.DisplayFailResponse();
                 }
                 else
                 {
@@ -60,8 +75,7 @@ namespace Interactions
             {
                 if (m_settings.UseDefaultResponses)
                 {
-                    ShowResponse(GameManager.Get.m_DefaultSuccessResponse);
-
+                    GameManager.Get.DisplaySuccessResponse();
                 }
                 else
                 {
@@ -88,7 +102,7 @@ namespace Interactions
             {
                 if (_response.m_RepeatLast)
                 {
-                    DialogManager.Get.PlayDialog(_response.m_PossibleDialogs.Last());
+                    DialogManager.Get.PlayDialog(_response.m_PossibleDialogs.Last(), this);
                     return;
                 }
                 if (_response.m_RepeatWhole)
@@ -102,8 +116,7 @@ namespace Interactions
             }
             if (_response.m_PlayAll)
             {
-                DialogManager.Get.StopDialog();
-                m_playAllCoroutine = StartCoroutine(PlayAll(_response));
+                DialogManager.Get.PlayAllDialogs(m_dialogsLeft[_response], this);
             }
             else
             {
@@ -120,31 +133,21 @@ namespace Interactions
             }
             if (_response.m_PlayInOrder)
             {
-                DialogManager.Get.PlayDialog(dialogsLeft[0]);
+                DialogManager.Get.PlayDialog(dialogsLeft[0], this);
                 dialogsLeft.RemoveAt(0);
             }
             else if (_response.m_PseudoRandom)
             {
                 Dialog dialog = dialogsLeft.Random();
-                DialogManager.Get.PlayDialog(dialog);
+                DialogManager.Get.PlayDialog(dialog, this);
                 dialogsLeft.Remove(dialog);
             }
             else
             {
-                DialogManager.Get.PlayDialog(dialogsLeft.Random());
+                DialogManager.Get.PlayDialog(dialogsLeft.Random(), this);
             }
         }
 
-        protected IEnumerator PlayAll(Response _response)
-        {
-            while (m_dialogsLeft[_response].Count > 0)
-            {
-                yield return new WaitUntil(() =>
-                !DialogManager.Get.IsPlayingDialog);
-                DialogManager.Get.PlayDialog(m_dialogsLeft[_response][0]);
-                m_dialogsLeft[_response].RemoveAt(0);
-            }
-            m_playAllCoroutine = null;
-        }
+       
     }
 }

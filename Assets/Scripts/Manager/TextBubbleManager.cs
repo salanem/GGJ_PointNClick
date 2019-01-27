@@ -19,8 +19,8 @@ public class TextBubbleManager : MonoBehaviour
         Get = this;
     }
     
-    public void DisplayTextBubble(string _text, float _displayTime)
+    public void DisplayTextBubble(string _text)
     {
-        Debug.Log(_text);
+        UIManager.Get.DisplayText(_text);
     }
 }
