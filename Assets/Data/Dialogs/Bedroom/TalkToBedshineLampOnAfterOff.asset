@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
+  m_Name: TalkToBedshineLampOnAfterOff
+  m_EditorClassIdentifier: 
+  m_AudioClips: []
+  m_Text:
+  - m_Speaker: John Luke
+    m_Text: Do you know that you hold quiet the monolouge while turned off?
+  - m_Speaker: Narrator
+    m_Text: It almost seems like the lamp is blushing before he starts giving John
+      his suprising anwser.
+  - m_Speaker: 
+    m_Text: 
+  - m_Speaker: Bedside Lamp
+    m_Text: "Well I did not think that you would notice so quickly. \nWell I guess
+      I owe you at least some anwser. \n"
+  - m_Speaker: Bedside Lamp
+    m_Text: "See I might not know what exactly I am or how excatlcy \nI came to be,
+      but I do know a lot and when I say a lot \nI mean every memory of mine over
+      my 150 year long life\n is stored somwhere in what you could call my mind."
+  - m_Speaker: Bedside Lamp
+    m_Text: "Turns out not even the mind of an concious lamp can \ncope with that
+      many memories and experiences, \nwhich is why my mind cracked in half many years
+      ago."
+  - m_Speaker: Bedside Lamp
+    m_Text: "So what you heard was the other half of my mind \nreliving one of my
+      earlier memories. Maybe even one \nwith your recently passed grandfather, \nyour
+      his grandchild and heir are you not?"
+  - m_Speaker: Narrator
+    m_Text: "Trying to follow the Lamps explenation John almost \nmissed that the
+      lamp knew who he were and \nwhy he was here. Trying to hide his state of \nconfusion
+      he says:\n"
+  m_AutoPlay: 1
+  m_TimeBetweenClips: 1
+  m_TriggerDialogEvent: 1
+  m_DialogEventType: 3

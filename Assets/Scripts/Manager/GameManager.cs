@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
             UIManager.Get.DisplayInventoryItems(m_displayedItems.ToArray());
         }
     }
+    public bool IsDiningHallDoorOpen { get; set; }
 
     public EInteractionType m_CurrentInteractionType;
     public Response m_DefaultSuccessResponse;
@@ -114,6 +115,15 @@ public class GameManager : MonoBehaviour
 
             foreach (ClickableObject obj in allObjects)
             {
+                if (_scene.name == "MainHall" && obj.name == "UnlockedDiningHallDoor" + "UnlockedDiningHallDoor")
+                {
+                    if (IsDiningHallDoorOpen)
+                    {
+                        activeObjects.Add(obj.m_ObjectName + obj.name);
+                        obj.gameObject.SetActive(true);
+                    }
+                    continue;
+                }
                 if (obj.m_InitalActive)
                 {
                     activeObjects.Add(obj.m_ObjectName + obj.name);
