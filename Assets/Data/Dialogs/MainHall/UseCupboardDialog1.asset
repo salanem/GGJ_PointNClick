@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
+  m_Name: UseCupboardDialog1
+  m_EditorClassIdentifier: 
+  m_AudioClips:
+  - {fileID: 8300000, guid: 0cecf9a8eab1de84d9f200ac3cb0f8cb, type: 3}
+  m_Text:
+  - m_Speaker: Narrator
+    m_Text: "As he tries to move the cupboard through using the extinguisher as some
+      sort \nof cowbar, [[Protagonist]] muscles resign from their intended use and
+      he \ndrops the extinguisher. The moment the Metal body touches the floor it
+      \nbounces off off it and hits the cupboard, with its full weight. For a few
+      second \nit seems like nothing would happen. Suddenly the Cupboard slowly starts
+      \nfalling toward him. In the last moment he manages to step aside, only \nclosly
+      avoiding the falling piece of wood."
+  m_AutoPlay: 1
+  m_TimeBetweenClips: 1
+  m_TriggerDialogEvent: 1
+  m_DialogEventType: 2

@@ -9,7 +9,11 @@ public class PlayDialogOnStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DialogManager.Get.PlayDialog(m_Dialog, null);
+        if (!GameManager.Get.HasDialogBeenPlayed(m_Dialog))
+        {
+            DialogManager.Get.PlayDialog(m_Dialog, null);
+        }
+            
     }
 
    

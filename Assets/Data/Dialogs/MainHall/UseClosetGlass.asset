@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
-  m_Name: PickUpClosetKeyDialog
+  m_Name: UseClosetGlass
   m_EditorClassIdentifier: 
   m_AudioClips:
-  - {fileID: 8300000, guid: 619b3b586ced0204e9964777713aff0b, type: 3}
-  m_Text:
-  - m_Speaker: Narrator
-    m_Text: Happy with his self fulfilling prophecy becomming true, he picks up the
-      dresser key.
+  - {fileID: 8300000, guid: 62a167b17b9f9ff4083869a4659e5ceb, type: 3}
+  m_Text: []
   m_AutoPlay: 1
   m_TimeBetweenClips: 1
   m_TriggerDialogEvent: 0

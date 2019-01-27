@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BedsideLampOnAnswer2
   m_EditorClassIdentifier: 
   m_AudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   - {fileID: 8300000, guid: 91b9e379d77dc494ebe03d01b7f07372, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   - {fileID: 8300000, guid: d912c089ffe8ba447a1f3bdb367ee903, type: 3}
   m_Text:
   - m_Speaker: Bedside Lamp

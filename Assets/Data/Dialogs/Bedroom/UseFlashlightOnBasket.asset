@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UseFlashlightOnBasket
   m_EditorClassIdentifier: 
   m_AudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   - {fileID: 8300000, guid: f78f71ea151015940b230359e80a4249, type: 3}
   - {fileID: 8300000, guid: c29de27048a6ee3469e5ccc2a06de686, type: 3}
   m_Text:

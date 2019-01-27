@@ -1603,7 +1603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad6d938e65486c4288e2d9f19dcfc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ObjectName: Bedroom Door
+  m_ObjectName: Staircase
   m_InitalActive: 0
 --- !u!212 &1721355856
 SpriteRenderer:
@@ -2035,7 +2035,7 @@ PrefabInstance:
     - target: {fileID: 2753469303900066354, guid: 206ad65dab7ffa64e9b6c2697c17ec3d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -53.7
+      value: 49.3
       objectReference: {fileID: 0}
     - target: {fileID: 2753469303900066354, guid: 206ad65dab7ffa64e9b6c2697c17ec3d,
         type: 3}

@@ -78,6 +78,10 @@ public class DialogManager : MonoBehaviour
         {
             return;
         }
+        if (m_audioSource == null)
+        {
+            return;
+        }
         m_isRunning = true;
         m_currentInteraction = _interaction;
         m_audioSource.Stop();

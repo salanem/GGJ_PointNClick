@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: TalkToBedsideLampOff
   m_EditorClassIdentifier: 
   m_AudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   - {fileID: 8300000, guid: facaacec488638a44bd4dc2307ac3148, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   - {fileID: 8300000, guid: 5dc0e403c309dbc4fbffbee88f324b89, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   - {fileID: 8300000, guid: d70b5d6a8a9e2964c9da846652f4b7ac, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   m_Text:
   - m_Speaker: Bedside Lamp
     m_Text: Another night another new face at your side.

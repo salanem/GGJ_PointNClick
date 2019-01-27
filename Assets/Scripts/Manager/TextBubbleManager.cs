@@ -21,7 +21,8 @@ public class TextBubbleManager : MonoBehaviour
     
     public void DisplayTextBubble(string _text)
     {
-        if (_text.Length == 1)
+        string[] split = _text.Split(':');
+        if (split[0].Length < 4)
         {
             _text = "";
         }

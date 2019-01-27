@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TalkToBedsideLampOn
   m_EditorClassIdentifier: 
   m_AudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   - {fileID: 8300000, guid: b1314d8f533795146839b02123d07a1d, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   - {fileID: 8300000, guid: 740649432bf9c684eac071fdc59442c0, type: 3}
   m_Text:
   - m_Speaker: John Luke
@@ -26,10 +26,10 @@ MonoBehaviour:
   - m_Speaker: Bedside Lamp
     m_Text: Looks like your lost.
   - m_Speaker: Narrator
-    m_Text: "Suprised by the sound of another voice, John Luke jumps up almost \nfalling
-      flat on his face. As he realizes who is speaking with him, \nhe calms down a
-      litte bit and starts to thing about how to \npropably answer a question of a
-      bedside lamp."
+    m_Text: Suprised by the sound of another voice, John Luke jumps up almost falling
+      flat on his face. As he realizes who is speaking with him, he calms down a litte
+      bit and starts to thing about how to propably answer a question of a bedside
+      lamp.
   m_AutoPlay: 1
   m_TimeBetweenClips: 0.5
   m_TriggerDialogEvent: 1

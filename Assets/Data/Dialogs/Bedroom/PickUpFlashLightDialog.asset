@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PickUpFlashLightDialog
   m_EditorClassIdentifier: 
   m_AudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ca1d29dd1dfd50f42a691d7879914fe7, type: 3}
   - {fileID: 8300000, guid: d03df6a49b9960e459b64ce62d976ff2, type: 3}
   m_Text:
   - m_Speaker: John Luke

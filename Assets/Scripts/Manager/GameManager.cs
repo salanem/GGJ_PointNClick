@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     private List<PickableObject> m_displayedItems;
     private Dictionary<Response, List<Dialog>> m_dialogsLeft = new Dictionary<Response, List<Dialog>>();
     private Coroutine m_playAllCoroutine;
+    private List<Dialog> m_playedDialogs = new List<Dialog>();
 
     private void Awake()
     {
@@ -104,7 +105,6 @@ public class GameManager : MonoBehaviour
             {
                 return;
             }
-            Debug.Log(Input.mousePosition);
             PlayerCharacter.Get.MoveTo(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }
@@ -170,10 +170,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool HasDialogBeenPlayed(Dialog _dialog)
+    {
+        if (!m_playedDialogs.Contains(_dialog))
+        {
+            m_playedDialogs.Add(_dialog);
+            return false;
+        }
+        return true;
+    }
+
     public void LoadRoom(Scene _newScene)
     {
         SaveSceneState();
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        UnityEngine.SceneManagement.Scene tmp = new UnityEngine.SceneManagement.Scene();
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            tmp = SceneManager.GetSceneAt(i);
+            if (tmp.name != "UIScene")
+            {
+                break;
+            }
+        }
+        SceneManager.UnloadSceneAsync(tmp);
         SceneManager.LoadScene(_newScene, LoadSceneMode.Additive);
     }
 

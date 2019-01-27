@@ -35,6 +35,5 @@ public class ConversationManager : MonoBehaviour
         DialogManager.Get.PlayDialog(m_currentChoice.m_Answers[_index], null);
         m_currentChoice = m_currentChoice.m_FollowUps[_index];
         UIManager.Get.DisplayChoice(m_currentChoice);
-        Debug.Log(m_currentChoice);
     }
 }
