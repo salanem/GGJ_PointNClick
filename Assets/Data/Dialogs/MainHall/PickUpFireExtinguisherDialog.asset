@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PickUpFireExtinguisherDialog
   m_EditorClassIdentifier: 
   m_AudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 832b1f40eb3c17b4a8e31512285154a0, type: 3}
   - {fileID: 8300000, guid: 6fb3ad18163706847b0ddea5bbac6421, type: 3}
   m_Text:
   - m_Speaker: Narrator

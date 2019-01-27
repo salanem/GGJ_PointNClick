@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UseBedDialog
   m_EditorClassIdentifier: 
   m_AudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: c927f677d74db3a4abc7c6364a6fc26f, type: 3}
   - {fileID: 8300000, guid: 1d27aff1f1a6c0049b7b74a87e35a474, type: 3}
   m_Text:
   - m_Speaker: Narrator

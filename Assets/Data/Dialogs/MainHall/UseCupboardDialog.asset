@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UseCupboardDialog
   m_EditorClassIdentifier: 
   m_AudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 0cecf9a8eab1de84d9f200ac3cb0f8cb, type: 3}
   - {fileID: 8300000, guid: d9b4d9cabff66824d8aeca241fd42bca, type: 3}
   - {fileID: 8300000, guid: d3c9cacf0da65da4ba0168e3718ad852, type: 3}
   m_Text:

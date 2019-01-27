@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
   m_Name: PullBedDialog
   m_EditorClassIdentifier: 
-  m_AudioClips: []
+  m_AudioClips:
+  - {fileID: 8300000, guid: 2ba8f4c76c3a0e048a1da4209bec8d8b, type: 3}
   m_Text:
   - m_Speaker: Narrator
     m_Text: As he pulls away the sheets an flashlights appears on the bed. Weardly
