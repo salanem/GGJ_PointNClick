@@ -4700,6 +4700,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 243182080286693840, guid: 9d008d742bfb27a47afa0f6f14c93425,
         type: 2}
+    - target: {fileID: 4635485786131773727, guid: f7b4cd08b9149874bb15c7b53ed84a5e,
+        type: 3}
+      propertyPath: m_StartScene.m_scenePath
+      value: Assets/Scenes/Rooms/MainHall.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635485786131773727, guid: f7b4cd08b9149874bb15c7b53ed84a5e,
+        type: 3}
+      propertyPath: m_StartScene.m_sceneObject
+      value: 
+      objectReference: {fileID: 102900000, guid: a60060c1341ec0a47a6dab6d4aa44e1c,
+        type: 3}
+    - target: {fileID: 4635485786131773727, guid: f7b4cd08b9149874bb15c7b53ed84a5e,
+        type: 3}
+      propertyPath: m_StartScene.m_sceneName
+      value: MainHall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635485786131773727, guid: f7b4cd08b9149874bb15c7b53ed84a5e,
+        type: 3}
+      propertyPath: m_StartScene.m_buildIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b4cd08b9149874bb15c7b53ed84a5e, type: 3}
 --- !u!1 &1603200064

@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/Bedroom.unity
     guid: 4f43f280432496f42b7bc115e0506311
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 8f8861633be7dcc4294dda6410ce84ff
+  - enabled: 1
+    path: Assets/Scenes/IntroDoorScene.unity
+    guid: a0a33c0d176126e4f84f52b6f596ebde
   m_configObjects: {}

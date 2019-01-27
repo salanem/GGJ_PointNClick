@@ -122,6 +122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 23394954}
   - component: {fileID: 23394953}
+  - component: {fileID: 23394955}
+  - component: {fileID: 23394956}
   m_Layer: 0
   m_Name: BackgroundSound
   m_TagString: Untagged
@@ -142,7 +144,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: d82f5c097e78e2d409a46b52f2cf5481, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.597
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -240,6 +242,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &23394955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23394952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e614ad3a6a6a7047ba752739dcb5d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FadeDuration: 3
+--- !u!114 &23394956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23394952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db41ebd98bd1ee7409df35a3a08de060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FadeTime: 2
 --- !u!1 &60373812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,10 +1699,10 @@ MonoBehaviour:
     m_sceneName: UIScene
     m_buildIndex: 1
   m_StartScene:
-    m_scenePath: Assets/Scenes/Rooms/MainHall.unity
-    m_sceneObject: {fileID: 102900000, guid: a60060c1341ec0a47a6dab6d4aa44e1c, type: 3}
-    m_sceneName: MainHall
-    m_buildIndex: 2
+    m_scenePath: Assets/Scenes/Intro.unity
+    m_sceneObject: {fileID: 102900000, guid: 8f8861633be7dcc4294dda6410ce84ff, type: 3}
+    m_sceneName: Intro
+    m_buildIndex: 5
   m_AudioMixer: {fileID: 24100000, guid: 9d008d742bfb27a47afa0f6f14c93425, type: 2}
 --- !u!1 &746763922
 GameObject:
@@ -2613,7 +2641,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f78f71ea151015940b230359e80a4249, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3114,7 +3142,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 8a4fe11725ae82c4aa1fef2cfc8ccbdf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4421,7 +4449,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f78f71ea151015940b230359e80a4249, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4749,7 +4777,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f78f71ea151015940b230359e80a4249, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

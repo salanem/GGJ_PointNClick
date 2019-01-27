@@ -62,8 +62,9 @@ public class GameManager : MonoBehaviour
     public Response m_DefaultSuccessResponse;
     public Response m_DefaultFailedResponse;
     public float m_DefaultTextTime;
-    public Scene m_UIScene;
     public Quest m_StartQuest;
+
+
     private PickableObject m_currentInventoryItem;
     private Dictionary<string, List<string>> m_activeObjectsByScene = new Dictionary<string, List<string>>();
     private int m_inventoryRow;
@@ -81,7 +82,6 @@ public class GameManager : MonoBehaviour
         }
         Get = this;
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-
         CurrentQuest = m_StartQuest;
     }
 
@@ -104,20 +104,18 @@ public class GameManager : MonoBehaviour
     {
         if (_scene.name == "UIScene")
         {
+            SceneManager.SetActiveScene(_scene);
             return;
         }
-        SceneManager.SetActiveScene(_scene);
         if (!m_activeObjectsByScene.ContainsKey(_scene.path))
         {
             // First Load, activate only initial objects
             List<string> activeObjects = new List<string>();
             ClickableObject[] allObjects = FindObjectsOfType<ClickableObject>();
-
             foreach (ClickableObject obj in allObjects)
             {
                 if (_scene.name == "MainHall")
                 {
-                    
                     if (IsDiningHallDoorOpen)
                     {
                         if (obj.name == "UnlockedDiningHallDoor")
@@ -129,8 +127,8 @@ public class GameManager : MonoBehaviour
                         {
                             obj.gameObject.SetActive(false);
                         }
+                        continue;
                     }
-                    continue;
                 }
                 if (obj.m_InitalActive)
                 {
