@@ -24,7 +24,7 @@ public class ClickableObject : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
-        Interact();
+        PlayerCharacter.Get.SetTarget(this);
     }
 
     public virtual void AddInteraction(Interaction _interaction)

@@ -23,6 +23,7 @@ public class DialogManager : MonoBehaviour
     private RepeatingCountdown m_countdown;
     private Coroutine m_playAllCoroutine;
     private Interaction m_currentInteraction;
+    private bool m_isRunning;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class DialogManager : MonoBehaviour
                 if (!NextSection())
                 {
                     m_currentDialog = null;
+                    m_isRunning = false;
                     return;
                 }
             }
@@ -57,6 +59,7 @@ public class DialogManager : MonoBehaviour
                         m_index++;
                         if (!NextSection())
                         {
+                            m_isRunning = false;
                             m_currentDialog = null;
                         }
                     }
@@ -71,6 +74,11 @@ public class DialogManager : MonoBehaviour
         {
             return;
         }
+        if (m_isRunning)
+        {
+            return;
+        }
+        m_isRunning = true;
         m_currentInteraction = _interaction;
         m_audioSource.Stop();
         m_countdown = new RepeatingCountdown(_dialog.m_TimeBetweenClips);
@@ -79,6 +87,7 @@ public class DialogManager : MonoBehaviour
         if (!NextSection())
         {
             m_currentDialog = null;
+            m_isRunning = false;
         }
     }
 
@@ -90,12 +99,18 @@ public class DialogManager : MonoBehaviour
             StopCoroutine(m_playAllCoroutine);
             m_playAllCoroutine = null;
         }
+        m_isRunning = false;
         m_currentDialog = null;
     }
 
     public void PlayAllDialogs(List<Dialog> _dialogs, Interaction _interaction)
     {
+        if (m_isRunning)
+        {
+            return;
+        }
         StopDialog();
+        m_isRunning = true;
         m_currentInteraction = _interaction;
         m_playAllCoroutine = StartCoroutine(PlayAll(_dialogs));
     }
@@ -104,6 +119,7 @@ public class DialogManager : MonoBehaviour
     {
         while (_dialogs.Count > 0)
         {
+            m_isRunning = true;
             yield return new WaitUntil(() =>
             !IsPlayingDialog);
             if (_dialogs[0].m_AudioClips.Length == 0
@@ -111,10 +127,12 @@ public class DialogManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(1.0f);
             }
+            m_isRunning = false;
             PlayDialog(_dialogs[0], m_currentInteraction);
             _dialogs.RemoveAt(0);
         }
         m_playAllCoroutine = null;
+        m_isRunning = false;
     }
     private bool NextSection()
     {

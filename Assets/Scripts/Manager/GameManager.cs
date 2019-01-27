@@ -145,11 +145,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnGUI()
-    {
-        GUILayout.Label(m_CurrentInteractionType.ToString());
-    }
-
     public void LoadRoom(Scene _newScene)
     {
         SaveSceneState();
