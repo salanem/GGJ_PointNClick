@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AudioClips:
   - {fileID: 8300000, guid: 6466e903a0c0e3841b93c69f091a1944, type: 3}
+  - {fileID: 8300000, guid: 4037acf34abf1454e9258b09659366d7, type: 3}
   m_Text:
   - m_Speaker: Protagonist
     m_Text: "OK fine I'll pull it but only since their has to be something \nunder
       every carpet."
+  - m_Speaker: 
+    m_Text: 
   m_AutoPlay: 1
   m_TimeBetweenClips: 1
   m_TriggerDialogEvent: 1
-  m_DialogEventType: 2
+  m_DialogEventType: 3

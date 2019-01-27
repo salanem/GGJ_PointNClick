@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8271619045121af47bd813fc64596b26, type: 3}
+  m_Name: BedsideLampeOnStart
+  m_EditorClassIdentifier: 
+  m_Choice: As he realizes who is speaking with him, he calms down a litte bit and
+    starts to thing about how to propably answer a question of a bedside lamp.
+  m_Options:
+  - How the hell did you learn to talk? No offense but you are still a bedside lamp!
+  - Is this some kind of meta joke or what?
+  - Yeah im lost, so what? You don't really seem to fit in either.
+  m_Answers:
+  - {fileID: 11400000, guid: a3b3c9795c9324148b8897d60c035f45, type: 2}
+  - {fileID: 11400000, guid: a3b3c9795c9324148b8897d60c035f45, type: 2}
+  - {fileID: 11400000, guid: a3b3c9795c9324148b8897d60c035f45, type: 2}
+  m_FollowUps:
+  - {fileID: 11400000, guid: 3139378d29ea4da4c9107ce84ce58935, type: 2}
+  - {fileID: 11400000, guid: 3139378d29ea4da4c9107ce84ce58935, type: 2}
+  - {fileID: 11400000, guid: 3139378d29ea4da4c9107ce84ce58935, type: 2}

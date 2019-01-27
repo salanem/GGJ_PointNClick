@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8271619045121af47bd813fc64596b26, type: 3}
+  m_Name: BedsideLampOnAnswer1
+  m_EditorClassIdentifier: 
+  m_Choice: After a few moments of silence he feels pressured to keep the conversation
+    going and after a few more moments he finds an satisfactory answer.
+  m_Options:
+  - But I mean all the publicity doesn't really fit your style either, does it?
+  - Must be lonly, not knowing and unable to move literaly anywhere.
+  - Well at leat your consious I mean means thats quite the feat to begin with. So
+    how do you use this consciousness of yours?
+  m_Answers:
+  - {fileID: 11400000, guid: d54a57441f6042641834fccca00db3db, type: 2}
+  - {fileID: 11400000, guid: d54a57441f6042641834fccca00db3db, type: 2}
+  - {fileID: 11400000, guid: d54a57441f6042641834fccca00db3db, type: 2}
+  m_FollowUps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

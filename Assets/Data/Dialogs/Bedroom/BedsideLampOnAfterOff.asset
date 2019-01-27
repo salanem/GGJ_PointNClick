@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
+  m_Name: BedsideLampOnAfterOff
+  m_EditorClassIdentifier: 
+  m_AudioClips: []
+  m_Text:
+  - m_Speaker: Bedside Lamp
+    m_Text: You do not seem to know a whole lot about your grandfather, let me tell
+      you he was truly one hell of a man.
+  - m_Speaker: John Luke
+    m_Text: Yeah one hell of an asshole.
+  - m_Speaker: 
+    m_Text: 
+  - m_Speaker: Bedside Lamp
+    m_Text: "In the end he was thats true but see he had his reasons,\n reasons long
+      forgotten even by me. After my brain split\n he helped me to rember some of
+      them but I could \nnot tell you for sure what drove him into the madness, t\nhat
+      where his final years. "
+  - m_Speaker: Bedside Lamp
+    m_Text: "What I do know however that he once  was my dearest \nfriend and my best
+      man at my own small wedding,\n which he organized."
+  - m_Speaker: Bedside Lamp
+    m_Text: "How I wish I could rember\nthese days just me, my wife, my child and
+      him \nand now look at me alone in an empty house\n the lone father of one child."
+  - m_Speaker: Bedside Lamp
+    m_Text: "It is rough especially when your fighting with your child \nall the time,
+      you would call it puperty even though \nit seems to take a bit longer for us
+      lamps."
+  - m_Speaker: Narrator
+    m_Text: "John listens fascinated by the stories of a grandfather \nhe never had
+      or at least never got to know and realizes\n that he starts to like the lamp
+      even though \njust thinking about it sound super crazy."
+  - m_Speaker: Narrator
+    m_Text: "He also decides that if he were to find the lamp's child\n he would try
+      to at talk to him and see if he could\n help, he always had his way with teenangers."
+  - m_Speaker: Narrator
+    m_Text: "He contiues talking with the lamp a bit before he takes \nhis leave,
+      wondering where the child might be and\n how it might look like."
+  m_AutoPlay: 1
+  m_TimeBetweenClips: 1
+  m_TriggerDialogEvent: 0
+  m_DialogEventType: 0

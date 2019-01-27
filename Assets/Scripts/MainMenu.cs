@@ -13,8 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(m_UIScene);
-        SceneManager.LoadScene(m_StartScene, LoadSceneMode.Additive);
+        SceneManager.LoadScene(m_StartScene);
     }
 
     public void Quit()

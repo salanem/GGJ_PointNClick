@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ced43dfa3d94d04ab94a9573bf09286, type: 3}
   m_Name: SecondIntroQuest
   m_EditorClassIdentifier: 
-  m_questName: Second Intro Quest
-  m_goal: Dance naked in the moonshine.
+  m_questName: Finding a place to eat.
+  m_goal: Find a nice place to eat.
   m_locations:
-  - Outdoors
+  - Bedroom
+  - Dining Hall
+  - Main Hall
   m_followUpQuest: {fileID: 0}

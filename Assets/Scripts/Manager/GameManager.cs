@@ -56,13 +56,15 @@ public class GameManager : MonoBehaviour
             UIManager.Get.DisplayInventoryItems(m_displayedItems.ToArray());
         }
     }
+    public bool IsDiningHallDoorOpen { get; set; }
 
     public EInteractionType m_CurrentInteractionType;
     public Response m_DefaultSuccessResponse;
     public Response m_DefaultFailedResponse;
     public float m_DefaultTextTime;
-    public Scene m_UIScene;
     public Quest m_StartQuest;
+
+
     private PickableObject m_currentInventoryItem;
     private Dictionary<string, List<string>> m_activeObjectsByScene = new Dictionary<string, List<string>>();
     private int m_inventoryRow;
@@ -80,7 +82,6 @@ public class GameManager : MonoBehaviour
         }
         Get = this;
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-
         CurrentQuest = m_StartQuest;
     }
 
@@ -103,17 +104,32 @@ public class GameManager : MonoBehaviour
     {
         if (_scene.name == "UIScene")
         {
+            SceneManager.SetActiveScene(_scene);
             return;
         }
-        SceneManager.SetActiveScene(_scene);
         if (!m_activeObjectsByScene.ContainsKey(_scene.path))
         {
             // First Load, activate only initial objects
             List<string> activeObjects = new List<string>();
             ClickableObject[] allObjects = FindObjectsOfType<ClickableObject>();
-
             foreach (ClickableObject obj in allObjects)
             {
+                if (_scene.name == "MainHall")
+                {
+                    if (IsDiningHallDoorOpen)
+                    {
+                        if (obj.name == "UnlockedDiningHallDoor")
+                        {
+                            activeObjects.Add(obj.m_ObjectName + obj.name);
+                            obj.gameObject.SetActive(true);
+                        }
+                        if (obj.name == "LockedDiningHallDoor")
+                        {
+                            obj.gameObject.SetActive(false);
+                        }
+                        continue;
+                    }
+                }
                 if (obj.m_InitalActive)
                 {
                     activeObjects.Add(obj.m_ObjectName + obj.name);

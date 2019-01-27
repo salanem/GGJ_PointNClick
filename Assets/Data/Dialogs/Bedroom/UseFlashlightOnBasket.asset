@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
+  m_Name: UseFlashlightOnBasket
+  m_EditorClassIdentifier: 
+  m_AudioClips:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: f78f71ea151015940b230359e80a4249, type: 3}
+  - {fileID: 0}
+  m_Text:
+  - m_Speaker: John Luke
+    m_Text: Oh who would have thought that an empty bascet would contain a hidden
+      switch
+  - m_Speaker: 
+    m_Text: '*Click*'
+  - m_Speaker: Narrator
+    m_Text: "Without hesitation he pulls the switch. \nAn quiet click sound comes
+      from the Main hall, \nat least he thinks. It might as well could be the\n return
+      of the ringing in his ears. Only time will tell."
+  m_AutoPlay: 1
+  m_TimeBetweenClips: 1
+  m_TriggerDialogEvent: 1
+  m_DialogEventType: 3

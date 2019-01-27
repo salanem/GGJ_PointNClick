@@ -94,11 +94,11 @@ MonoBehaviour:
   m_DefaultFailedResponse: {fileID: 11400000, guid: 5a1e0a66fa590f545bc3b4746da9d924,
     type: 2}
   m_DefaultTextTime: 0
-  m_UIScene:
-    m_scenePath: Assets/Scenes/UIScene.unity
-    m_sceneObject: {fileID: 102900000, guid: 3b92a1e1e0938774bbb5fc84f32dbb5e, type: 3}
-    m_sceneName: UIScene
-    m_buildIndex: 1
+  m_StartScene:
+    m_scenePath: Assets/Scenes/Rooms/MainHall.unity
+    m_sceneObject: {fileID: 102900000, guid: a60060c1341ec0a47a6dab6d4aa44e1c, type: 3}
+    m_sceneName: MainHall
+    m_buildIndex: 2
   m_StartQuest: {fileID: 11400000, guid: f03a8e4ebded44347a40d8a8cfd16afe, type: 2}
 --- !u!1 &4635485786375512466
 GameObject:
