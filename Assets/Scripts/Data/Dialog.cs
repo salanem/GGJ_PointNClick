@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Dialog", menuName = "Data/New Dialog")]
+[CreateAssetMenu(fileName = "New Dialog", menuName = "Data/Dialog")]
 public class Dialog : ScriptableObject
 {
     public AudioClip[] m_AudioClips;

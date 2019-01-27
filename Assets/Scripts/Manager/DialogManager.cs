@@ -87,6 +87,11 @@ public class DialogManager : MonoBehaviour
     public void StopDialog()
     {
         m_audioSource.Stop();
+        if (m_playAllCoroutine != null)
+        {
+            StopCoroutine(m_playAllCoroutine);
+            m_playAllCoroutine = null;
+        }
         m_currentDialog = null;
     }
 
@@ -103,8 +108,8 @@ public class DialogManager : MonoBehaviour
         {
             yield return new WaitUntil(() =>
             !IsPlayingDialog);
-            if (_dialogs[0].m_AudioClips.Length == 0 &&
-                _dialogs[0].m_Text.Length == 0)
+            if (_dialogs[0].m_AudioClips.Length == 0
+                && _dialogs[0].m_Text.Length == 0)
             {
                 yield return new WaitForSeconds(1.0f);
             }
@@ -119,8 +124,12 @@ public class DialogManager : MonoBehaviour
         m_audioSource.Stop();
         if (m_currentDialog.m_Text.Length > m_index)
         {
-            TextBubbleManager.Get.DisplayTextBubble(m_currentDialog.m_Text[m_index].ToString(), -1);
+            TextBubbleManager.Get.DisplayTextBubble(m_currentDialog.m_Text[m_index].ToString());
             playedSomething = true;
+        }
+        else
+        {
+            TextBubbleManager.Get.DisplayTextBubble("");
         }
         if (m_currentDialog.m_AudioClips.Length > m_index)
         {

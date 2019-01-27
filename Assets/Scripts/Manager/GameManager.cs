@@ -96,7 +96,10 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
+            EInteractionType type = m_CurrentInteractionType;
+            m_CurrentInteractionType = EInteractionType.USE;
             UIManager.Get.SelectItem(-1);
+            m_CurrentInteractionType = type;
         }
     }
 
@@ -185,7 +188,7 @@ public class GameManager : MonoBehaviour
         if (m_currentInventoryItem == _object)
         {
             EInteractionType tmp = m_CurrentInteractionType;
-            m_CurrentInteractionType = EInteractionType.PICK_UP;
+            m_CurrentInteractionType = EInteractionType.USE;
             UIManager.Get.SelectItem(-1);
             m_CurrentInteractionType = tmp;
         }
