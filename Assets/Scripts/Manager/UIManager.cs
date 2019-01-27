@@ -171,6 +171,7 @@ public class UIManager : MonoBehaviour
             return;
         }
         string action = "";
+        string with = "";
         switch (GameManager.Get.m_CurrentInteractionType)
         {
             case EInteractionType.OPEN:
@@ -199,9 +200,13 @@ public class UIManager : MonoBehaviour
                 break;
             case EInteractionType.USE:
                 action = "Use";
+                if (GameManager.Get.CurrentInventoryItem != null)
+                {
+                    with = " with " + GameManager.Get.CurrentInventoryItem.m_ObjectName;
+                }
                 break;
         }
-        m_HoverText.text = action + " " + _object.m_ObjectName;
+        m_HoverText.text = action + " " + _object.m_ObjectName + with;
     }
 
     public void ToggleDisplayCurrentQuest(Quest _quest)
