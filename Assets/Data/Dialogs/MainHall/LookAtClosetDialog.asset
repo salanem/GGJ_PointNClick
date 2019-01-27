@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
   m_Name: LookAtClosetDialog
   m_EditorClassIdentifier: 
-  m_AudioClips: []
+  m_AudioClips:
+  - {fileID: 8300000, guid: 3a85516b967d5944b9ec0b3e3c824318, type: 3}
   m_Text:
   - m_Speaker: Narrator
-    m_Text: "An old closet. A sign on it says: to be opend in case the house is burning
+    m_Text: "An old dresser. A sign on it says: to be opend in case the house is burning
       or you needing a fire extinguisher for something. \nAt least thats what [[Protagonist]]
       understands."
   m_AutoPlay: 1
   m_TimeBetweenClips: 1
+  m_TriggerDialogEvent: 0
+  m_DialogEventType: 0

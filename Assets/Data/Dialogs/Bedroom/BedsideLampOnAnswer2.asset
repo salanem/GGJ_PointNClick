@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
   m_Name: BedsideLampOnAnswer2
   m_EditorClassIdentifier: 
-  m_AudioClips: []
+  m_AudioClips:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 91b9e379d77dc494ebe03d01b7f07372, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: d912c089ffe8ba447a1f3bdb367ee903, type: 3}
   m_Text:
   - m_Speaker: Bedside Lamp
     m_Text: Im kind of a loner you know, guess you get used to it over the decades.
@@ -22,7 +27,7 @@ MonoBehaviour:
     m_Text: I see, well I'll better leave you alone then.
   - m_Speaker: Bedside Lamp
     m_Text: Do that or not, whom is to decide but you?
-  - m_Speaker: 
+  - m_Speaker: Narrator
     m_Text: "Even more confused than before the conversation with the lamp John Luke\n
       takes his leave, asking himself if it is rude not to turn of the lamp. \nIf
       he's honest though he does not really care. In the end it is still just \na

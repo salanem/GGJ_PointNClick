@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
   m_Name: TalkToBedshineLampOnAfterOff
   m_EditorClassIdentifier: 
-  m_AudioClips: []
+  m_AudioClips:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 3e183ae2ea642cb4fabde11ab08b71d6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: d44e15b28b1bd974da21a6ab10cf2669, type: 3}
   m_Text:
   - m_Speaker: John Luke
     m_Text: Do you know that you hold quiet the monolouge while turned off?

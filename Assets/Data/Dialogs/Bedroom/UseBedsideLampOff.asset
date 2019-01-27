@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
   m_Name: UseBedsideLampOff
   m_EditorClassIdentifier: 
-  m_AudioClips: []
+  m_AudioClips:
+  - {fileID: 8300000, guid: c0e2eb4363b196a43b61a55005211743, type: 3}
   m_Text:
   - m_Speaker: Narrator
     m_Text: "With a bright flash the lamp starts lighting up the room. \nIt almost
