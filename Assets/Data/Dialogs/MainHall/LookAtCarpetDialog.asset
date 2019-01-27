@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AudioClips:
   - {fileID: 8300000, guid: 0ea6672d34b50fc4b993e5a7e9a653f8, type: 3}
+  - {fileID: 8300000, guid: 042a370cbc438d547a8b1ec243a556ff, type: 3}
   m_Text:
   - m_Speaker: Protagonist
     m_Text: Uh gross!

@@ -21,8 +21,15 @@ public class TextBubbleManager : MonoBehaviour
     
     public void DisplayTextBubble(string _text)
     {
+        if (_text.Length == 1)
+        {
+            _text = "";
+        }
         string text = _text.Replace("[[Protagonist]]", "John Luke");
         text = text.Replace("Protagonist", "John Luke");
+        text = text.Replace("[[", "");
+        text = text.Replace("]]", "");
+
         UIManager.Get.DisplayText(text);
     }
 }

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
+  m_Name: EnterBedroomDialog
+  m_EditorClassIdentifier: 
+  m_AudioClips:
+  - {fileID: 8300000, guid: 7464dcf1ac0a65a4e87ee8238bc611ca, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: a0c55d67f4c64484485a1e8b4fd65c91, type: 3}
+  m_Text:
+  - m_Speaker: Narrator
+    m_Text: As he enters the old bedroom, pictures spring to his mind, pictures of
+      a happy past. Him and his sister jumping on the bed, running through the halls,
+      and his grandparents complaning about getting woken up so early.
+  - m_Speaker: John Luke
+    m_Text: Good times.
+  - m_Speaker: Narrator
+    m_Text: He says to himself. Not that he actually rembered if they were any good.
+      He just needs the to be good for the moment.
+  m_AutoPlay: 1
+  m_TimeBetweenClips: 1
+  m_TriggerDialogEvent: 0
+  m_DialogEventType: 0

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
   m_Name: LookAtLampOnDialog
   m_EditorClassIdentifier: 
-  m_AudioClips: []
+  m_AudioClips:
+  - {fileID: 8300000, guid: 58bd5a2d1ece891488335310c276d140, type: 3}
   m_Text:
   - m_Speaker: Narrator
     m_Text: "John Luke remebers this lamp well, once he fell against the small desk\n
