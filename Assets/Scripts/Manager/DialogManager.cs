@@ -39,6 +39,15 @@ public class DialogManager : MonoBehaviour
     {
         if (m_currentDialog != null)
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                m_index++;
+                if (!NextSection())
+                {
+                    m_currentDialog = null;
+                    return;
+                }
+            }
             if (m_currentDialog.m_AutoPlay)
             {
                 if (!m_audioSource.isPlaying)
@@ -50,17 +59,6 @@ public class DialogManager : MonoBehaviour
                         {
                             m_currentDialog = null;
                         }
-                    }
-                }
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    m_index++;
-                    if (!NextSection())
-                    {
-                        m_currentDialog = null;
                     }
                 }
             }

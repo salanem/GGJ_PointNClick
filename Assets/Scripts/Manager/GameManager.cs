@@ -90,10 +90,6 @@ public class GameManager : MonoBehaviour
         {
             UIManager.Get.ToggleDisplayCurrentQuest(CurrentQuest);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            QuestFinished();
-        }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             EInteractionType type = m_CurrentInteractionType;
