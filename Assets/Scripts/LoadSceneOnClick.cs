@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-namespace Assets.Scripts
-{
-    public class LoadSceneOnClick : MonoBehaviour
-    {
-        public Scene m_Scene;
+﻿using UnityEngine;
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GameManager.Get.LoadRoom(m_Scene);
-            }
-        }
+public class LoadSceneOnClick : MonoBehaviour
+{
+    public Scene m_Scene;
+
+    protected virtual void OnMouseDown()
+    {
+        GameManager.Get.LoadRoom(m_Scene);
     }
 }

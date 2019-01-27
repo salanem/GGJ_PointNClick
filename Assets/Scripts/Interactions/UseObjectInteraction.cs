@@ -7,12 +7,12 @@ namespace Interactions
     public class UseObjectInteraction : Interaction
     {
         public string RequiredObjectName { get { return m_requiredObjectName; } }
-        public ClickableObject ToActivate { get { return m_toActivate; } }
+        public List<ClickableObject> ToActivate { get { return m_toActivate; } }
 
 #pragma warning disable 0649
         // Assigned in the editor
         [SerializeField]
-        private ClickableObject m_toActivate;
+        private List<ClickableObject> m_toActivate;
 #pragma warning restore 0649
         [SerializeField]
         protected string m_requiredObjectName;
@@ -50,14 +50,20 @@ namespace Interactions
             {
                 if (string.IsNullOrWhiteSpace(RequiredObjectName))
                 {
-                    ToActivate?.gameObject.SetActive(true);
+                    foreach (ClickableObject click in m_toActivate)
+                    {
+                        click.gameObject.SetActive(true);
+                    }
                     gameObject.SetActive(false);
                     UIManager.Get.DisplayHoverItem(null);
                     GameManager.Get.CurrentInventoryItem.Used();
                 }
                 else if (RequiredObjectName == GameManager.Get.CurrentInventoryItem.m_ObjectName)
                 {
-                    ToActivate?.gameObject.SetActive(true);
+                    foreach (ClickableObject click in m_toActivate)
+                    {
+                        click.gameObject.SetActive(true);
+                    }
                     gameObject.SetActive(false);
                     UIManager.Get.DisplayHoverItem(null);
                     GameManager.Get.CurrentInventoryItem.Used();
