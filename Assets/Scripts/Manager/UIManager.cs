@@ -25,6 +25,11 @@ public class UIManager : MonoBehaviour
     public RectTransform m_TextDisplayPanel;
     public TextMeshProUGUI m_TextDisplay;
 
+    public RectTransform m_ConversationPanel;
+    public TextMeshProUGUI m_Question;
+    public Text[] m_TextOptions;
+    public Button[] m_OptionButtons;
+
     private void Awake()
     {
         if (Get != null)
@@ -161,6 +166,35 @@ public class UIManager : MonoBehaviour
     public void InventoryArrowDown()
     {
         GameManager.Get.InventoryRow--;
+    }
+
+    public void DisplayChoice(Choice _choice)
+    {
+        if (_choice == null)
+        {
+            m_ConversationPanel.gameObject.SetActive(false);
+            return;
+        }
+        m_Question.text = _choice.m_Choice;
+        foreach (Text text in m_TextOptions)
+        {
+            text.text = "";
+        }
+        foreach (Button button in m_OptionButtons)
+        {
+            button.interactable = false;
+        }
+        for (int i = 0; i < _choice.m_Options.Length; i++)
+        {
+            m_TextOptions[i].text = _choice.m_Options[i];
+            m_OptionButtons[i].interactable = true;
+        }
+        m_ConversationPanel.gameObject.SetActive(true);
+    }
+
+    public void ChoseChoice(int _index)
+    {
+        ConversationManager.Get.ChoseChoice(_index);
     }
 
     public void DisplayHoverItem(ClickableObject _object)

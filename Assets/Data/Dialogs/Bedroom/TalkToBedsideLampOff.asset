@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186d1c0c7dbb89f458be277a019216eb, type: 3}
+  m_Name: TalkToBedsideLampOff
+  m_EditorClassIdentifier: 
+  m_AudioClips: []
+  m_Text:
+  - m_Speaker: Bedside Lamp
+    m_Text: Another night another new face at your side.
+  - m_Speaker: Narrator
+    m_Text: "Again a voice cuts trough the silence of this huge place, \nagain John
+      Luke winces and again the lamp was the one to speak.\nBut before John Luke can
+      answer him again, he continues with his one sided conversation."
+  - m_Speaker: Narrator
+    m_Text: Now asking him self to whom the lamp might be talking to, John Luke decides
+      to stay a while and listen.
+  - m_Speaker: Bedside Lamp
+    m_Text: "Yeah I know that beeing an adventurer is less fun and joy than \nbeing
+      one of the most sought after bachelors around, \nbut damm me if it is not what
+      you are actually ment to \ndo with your short life."
+  - m_Speaker: Bedside Lamp
+    m_Text: "I told you again and again that I will not recive the gift to \ndie in
+      peace any time time soon, it seems it is not ment to be, \nat least not yet. "
+  - m_Speaker: Bedside Lamp
+    m_Text: "OK fine than, continue to drink, fuck and drug yourself to death. \nBut
+      do not come bagging for forgivness when your fame starts \nto wear off and you
+      need help to get back to being an explorer again."
+  - m_Speaker: Narrator
+    m_Text: "And with that the lamp turns to being silent again. \nJohn Luke listens
+      to silence for a few more moments before he contiues his search through the
+      house again."
+  m_AutoPlay: 1
+  m_TimeBetweenClips: 1
+  m_TriggerDialogEvent: 0
+  m_DialogEventType: 0
