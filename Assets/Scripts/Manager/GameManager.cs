@@ -115,12 +115,20 @@ public class GameManager : MonoBehaviour
 
             foreach (ClickableObject obj in allObjects)
             {
-                if (_scene.name == "MainHall" && obj.name == "UnlockedDiningHallDoor" + "UnlockedDiningHallDoor")
+                if (_scene.name == "MainHall")
                 {
+                    
                     if (IsDiningHallDoorOpen)
                     {
-                        activeObjects.Add(obj.m_ObjectName + obj.name);
-                        obj.gameObject.SetActive(true);
+                        if (obj.name == "UnlockedDiningHallDoor")
+                        {
+                            activeObjects.Add(obj.m_ObjectName + obj.name);
+                            obj.gameObject.SetActive(true);
+                        }
+                        if (obj.name == "LockedDiningHallDoor")
+                        {
+                            obj.gameObject.SetActive(false);
+                        }
                     }
                     continue;
                 }

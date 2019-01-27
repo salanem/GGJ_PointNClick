@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ObjectName: Dining Hall Door
-  m_InitalActive: 0
+  m_InitalActive: 1
 --- !u!212 &736135737
 SpriteRenderer:
   m_ObjectHideFlags: 0
